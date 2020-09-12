@@ -1,0 +1,42 @@
+set vb t_vb=
+set noerrorbells
+autocmd VimEnter * set nospell
+set smartcase
+
+colorscheme peaksea
+
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+
+let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/bin/ctags'
+
+map <leader>cc <plug>NERDCommenterToggle<CR>
+
+let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }

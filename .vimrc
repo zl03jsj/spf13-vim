@@ -80,17 +80,13 @@
 " }
 
 " General {
-
-    set background=dark         " Assume a dark background
-
-    " Allow to trigger background
     function! ToggleBG()
         let s:tbg = &background
         " Inversion
         if s:tbg == "dark"
-            set background=light
-        else
             set background=dark
+        else
+            set background=light
         endif
     endfunction
     noremap <leader>bg :call ToggleBG()<CR>
@@ -126,7 +122,7 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking on
+    set nospell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -217,7 +213,9 @@
 
     set backspace=indent,eol,start  " Backspace for dummies
     set linespace=0                 " No extra spaces between rows
-    set number                      " Line numbers on
+    "set number                      " Line numbers on
+    set relativenumber
+    set number
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
     set hlsearch                    " Highlight search terms
@@ -237,7 +235,7 @@
 
 " Formatting {
 
-    set nowrap                      " Do not wrap long lines
+    set wrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
@@ -581,7 +579,7 @@
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
+            let NERDTreeQuitOnOpen=0
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=1
             let NERDTreeKeepTreeInNewTab=1
@@ -711,7 +709,11 @@
 
     " YouCompleteMe {
         if count(g:spf13_bundle_groups, 'youcompleteme')
+            let g:ycm_confirm_extra_conf=0
             let g:acp_enableAtStartup = 0
+
+            nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+            let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
             " enable completion from tags
             let g:ycm_collect_identifiers_from_tags_files = 1
@@ -1071,14 +1073,17 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
-        set lines=40                " 40 lines of text instead of 24
+        set lines=70                " 40 lines of text instead of 24
+        set columns=160
         if !exists("g:spf13_no_big_font")
             if LINUX() && has("gui_running")
-                set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
+                set guifont=Ubuntu\ Mono\ derivative\ Powerline:h12,Ubuntu\
+                Mono:h11,Andale\ Mono\ Regular\ 12,Menlo\ Regular\
+                11,Consolas\ Regular\ 12,Courier\ New\ Regular:h14
             elseif OSX() && has("gui_running")
-                set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
+                set guifont=Ubuntu\ Mono\ derivative\ Powerline:h12,Ubuntu\ Mono:h12,Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
             elseif WINDOWS() && has("gui_running")
-                set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+                set guifont=Ubuntu\ Mono:h12,Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
     else
