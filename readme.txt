@@ -30,7 +30,8 @@ cs?? 修改一对符号
 ctrl+w n <|>
 
 
-文件格式化 快捷键<leader>l
+文件格式化 快捷键ctrl+l
+代码提示补全快捷键ctrl+k
 
 
 1) 在.vimrc.bundles.local中添加:

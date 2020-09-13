@@ -43,6 +43,12 @@ let g:tagbar_type_go = {
             \ 'ctagsargs' : '-sort -silent'
             \ }
 
+let g:formatdef_clangformat_google = '"clang-format -style google -"'
+let g:formatters_c = ['clangformat_google']
+map <c-l> :Autoformat<CR>
+
+" youcompleteme
+let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_semantic_triggers =  {
   \   'c': ['->', '.', 're!\w{2}'],
   \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
@@ -56,7 +62,4 @@ let g:ycm_semantic_triggers =  {
   \   'lua': ['.', ':'],
   \   'erlang': [':'],
   \ }
-
-let g:formatdef_clangformat_google = '"clang-format -style google -"'
-let g:formatters_c = ['clangformat_google']
-map <leader>l :Autoformat<CR>
+let g:ycm_key_invoke_completion = '<c-k>'
