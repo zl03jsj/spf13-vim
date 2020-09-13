@@ -1,12 +1,11 @@
 let g:airline_powerline_fonts=1
-
 set vb t_vb=
 set noerrorbells
 autocmd VimEnter * set nospell
 set smartcase
 
-color peaksea
 color OceanicNext
+color peaksea
 set background=dark
 
 map  / <Plug>(easymotion-sn)
@@ -43,3 +42,21 @@ let g:tagbar_type_go = {
             \ 'ctagsbin'  : 'gotags',
             \ 'ctagsargs' : '-sort -silent'
             \ }
+
+let g:ycm_semantic_triggers =  {
+  \   'c': ['->', '.', 're!\w{2}'],
+  \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \            're!\[.*\]\s'],
+  \   'ocaml': ['.', '#'],
+  \   'cpp,cuda,objcpp': ['->', '.', '::'],
+  \   'perl': ['->'],
+  \   'php': ['->', '::'],
+  \   'cs,d,elixir,go,groovy,java,javascript,julia,perl6,python,scala,typescript,vb': ['.'],
+  \   'ruby,rust': ['.', '::', 're!\w{2}'],
+  \   'lua': ['.', ':'],
+  \   'erlang': [':'],
+  \ }
+
+let g:formatdef_clangformat_google = '"clang-format -style google -"'
+let g:formatters_c = ['clangformat_google']
+map <leader>l :Autoformat<CR>

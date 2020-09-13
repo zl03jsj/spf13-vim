@@ -30,3 +30,15 @@ cs?? 修改一对符号
 ctrl+w n <|>
 
 
+文件格式化 快捷键<leader>l
+
+
+1) 在.vimrc.bundles.local中添加:
+Bundle 'Chiel92/vim-autoformat'
+2) 安装格式化外部工具:
+参考: https://wsxq2.55555.io/blog/2018/11/25/Vim%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%8F%92%E4%BB%B6vim-autoformat/
+Artistic Style:https://blog.csdn.net/wenfh2020/article/details/80255918
+
+
+alt键的使用
+https://www.reddit.com/r/vim/comments/8r4ny7/mapping_alt_on_mac/

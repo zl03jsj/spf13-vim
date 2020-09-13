@@ -1,1 +1,2 @@
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'Chiel92/vim-autoformat'
