@@ -227,7 +227,7 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
+    "set foldenable                  " Auto fold code
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
@@ -710,11 +710,12 @@
 
     " YouCompleteMe {
         if count(g:spf13_bundle_groups, 'youcompleteme')
-            let g:ycm_confirm_extra_conf=0
+            let g:ycm_confirm_extra_conf=1
             let g:acp_enableAtStartup = 0
 
             nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-            let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+            let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+            let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
             " enable completion from tags
             let g:ycm_collect_identifiers_from_tags_files = 1
