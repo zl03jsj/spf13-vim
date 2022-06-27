@@ -144,6 +144,17 @@ Customizations:
 	•	Hide clutter ('.pyc', '.git', '.hg', '.svn', '.bzr')
 	•	Treat NERDTree more like a panel than a split.
 
+
+### 全局查找Ack插件
+地址: https://github.com/mileszs/ack.vim
+```shell
+brew insall ack
+```
+
+### 输入法自动切换
+https://cloud.tencent.com/developer/article/1877309
+Bundle 'ybian/smartim'
+
 FAQ:
 1. 每次打开某个文件时(如:~/.vimrc), 都会自动折叠所有内容. 
     编辑~/.vimrc,设置将`set foldenable`注释掉. 打开一次文件后, 按`zn`., `zn`的解释如下:
