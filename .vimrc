@@ -756,6 +756,12 @@
             " When enabled, there can be too much visual noise
             " especially when splits are used.
             set completeopt-=preview
+            
+            " ============= YCM For Rust ============
+            " rustup install nightly; rustup default nightly;
+            " rustup component add rust-src rustfmt rust-analysis rust-analyzer-preview;
+            let g:ycm_rust_toolchain_root = '/Users/zl/.rustup/toolchains/nightly-x86_64-apple-darwin'
+            let g:ycm_rust_src_path = '/Users/zl/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
         endif
     " }
 

@@ -29,8 +29,16 @@ Ctrl + Y——向下滚动一行
 在当前文档中, 高亮光标下的内容:
 ctrl w = *
 
-YouCompleteMe:
+YouCompleteMe: 
 hover提示信息: <leader>h
+
+[参考内容](https://blog.stdio.io/1103)
+设置系统自带的rust tool chain 路径, 使用系统自带的rust工具链, 在编译ycm时, 不要使用:
+`python3 ./install.py --rust-completer`
+否则YCM会自动下载一个特定版本的rust工具链, 通过设置下面的变量来设置工具链位置:
+let g:ycm_rust_toolchain_root = '/Users/zl/.rustup/toolchains/nightly-x86_64-apple-darwin'
+let g:ycm_rust_src_path = '/Users/zl/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+
 
 
 
