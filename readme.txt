@@ -29,6 +29,8 @@ Ctrl + Y——向下滚动一行
 在当前文档中, 高亮光标下的内容:
 ctrl w = *
 
+tagbar: ,tt
+
 YouCompleteMe: 
 hover提示信息: <leader>h
 
