@@ -78,6 +78,12 @@ let g:ycm_semantic_triggers =  {
   \ }
 let g:ycm_key_invoke_completion = '<c-k>'
 
+" ack
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
 set noerrorbells
 set visualbell
+
+
 
