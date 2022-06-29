@@ -21,10 +21,17 @@ Ctrl + U——向前滚动半屏
 Ctrl + E——向上滚动一行
 Ctrl + Y——向下滚动一行
 
-窗口尺寸调整: ctrl+w n <|>
+窗口尺寸调整: ctrl+w n < | >
 
 文件格式化快捷键    ctrl+l
 代码提示补全快捷键  ctrl+k
+
+在当前文档中, 高亮光标下的内容:
+ctrl w = *
+
+YouCompleteMe:
+hover提示信息: <leader>h
+
 
 
 缓冲区:
@@ -159,33 +166,6 @@ FAQ:
 1. 每次打开某个文件时(如:~/.vimrc), 都会自动折叠所有内容. 
     编辑~/.vimrc,设置将`set foldenable`注释掉. 打开一次文件后, 按`zn`., `zn`的解释如下:
     zn Fold none: reset 'foldenable'.  All folds will be open.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

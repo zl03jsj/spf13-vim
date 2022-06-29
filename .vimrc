@@ -227,7 +227,7 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    "set foldenable                  " Auto fold code
+    set foldenable                  " Auto fold code
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
@@ -714,6 +714,10 @@
             let g:acp_enableAtStartup = 0
 
             nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+            " turn off hover info
+            let g:ycm_auto_hover = ''
+            " toggle hover info with F3
+            nmap <silent> <leader>h <plug>(YCMHover)
             let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
             let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 

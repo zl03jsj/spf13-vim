@@ -5,6 +5,7 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'haya14busa/incsearch.vim'
 Bundle 'haya14busa/incsearch-fuzzy.vim'
 Bundle 'haya14busa/incsearch-easymotion.vim'
+
 Bundle 'iamcco/mathjax-support-for-mkdp'
 Bundle 'iamcco/markdown-preview.vim'
 Bundle 'ybian/smartim'
