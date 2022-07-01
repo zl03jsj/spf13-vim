@@ -4,10 +4,12 @@ autocmd VimEnter * set nospell
 set smartcase
 
 "color OceanicNext
-"color peaksea
-color 0x7A69_dark
+"color dusk
+color peaksea
 set background=dark
 
+" ============= EASY MOTION ============
+" 直接将'/'映射为easymotion查找
 " map <Leader> <Plug>(easymotion-prefix)
 " map  / <Plug>(easymotion-sn)
 " omap / <Plug>(easymotion-tn)
@@ -30,60 +32,100 @@ let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/bin/ctags'
 map <leader>cc <plug>NERDCommenterToggle<CR>
 
 let g:tagbar_type_go = {
-            \ 'ctagstype' : 'go',
-            \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-            \ ],
-            \ 'sro' : '.',
-            \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-            \ },
-            \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-            \ },
-            \ 'ctagsbin'  : 'gotags',
-            \ 'ctagsargs' : '-sort -silent'
-            \ }
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+    \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
 
 let g:formatdef_clangformat_google = '"clang-format -style google -"'
 let g:formatters_c = ['clangformat_google']
 map <c-l> :Autoformat<CR>
 
 " youcompleteme
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_semantic_triggers =  {
-  \   'c': ['->', '.', 're!\w{2}'],
-  \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-  \            're!\[.*\]\s'],
-  \   'ocaml': ['.', '#'],
-  \   'cpp,cuda,objcpp': ['->', '.', '::'],
-  \   'perl': ['->'],
-  \   'php': ['->', '::'],
-  \   'cs,d,elixir,go,groovy,java,javascript,julia,perl6,python,scala,typescript,vb': ['.'],
-  \   'ruby,rust': ['.', '::', 're!\w{2}'],
-  \   'lua': ['.', ':'],
-  \   'erlang': [':'],
-  \ }
-let g:ycm_key_invoke_completion = '<c-k>'
+if count(g:spf13_bundle_groups, 'youcompleteme')
+    let g:ycm_min_num_identifier_candidate_chars = 2
+    let g:ycm_semantic_triggers =  {
+        \   'c': ['->', '.', 're!\w{2}'],
+        \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+        \            're!\[.*\]\s'],
+        \   'ocaml': ['.', '#'],
+        \   'cpp,cuda,objcpp': ['->', '.', '::'],
+        \   'perl': ['->'],
+        \   'php': ['->', '::'],
+        \   'cs,d,elixir,go,groovy,java,javascript,julia,perl6,python,scala,typescript,vb': ['.'],
+        \   'ruby,rust': ['.', '::', 're!\w{2}'],
+        \   'lua': ['.', ':'],
+        \   'erlang': [':'],
+        \ }
+    let g:ycm_key_invoke_completion = '<c-k>'
 
-" ack
+    " multi-file refactor support : https://github.com/ycm-core/YouCompleteMe/issues/3456
+    let g:ycm_clangd_args = ['-cross-file-rename']
+
+    " ============= YCM For Rust ============
+    " rustup install nightly; rustup default nightly;
+    " rustup component add rust-src rustfmt rust-analysis rust-analyzer-preview;
+    let g:ycm_rust_toolchain_root = '/Users/zl/.rustup/toolchains/nightly-x86_64-apple-darwin'
+    let g:ycm_rust_src_path = '/Users/zl/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+endif
+
+" ---------------------> Ack <---------------------
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
+" 让ack.vim使用ag作为搜索工具, 先安装ag: brew install ag
+let g:ackprg = 'ag --nogroup --column'
 
 set noerrorbells
 set visualbell
 
-
-
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_section_a = airline#section#create(['mode'])
+"let g:airline_section_b = airline#section#create_left(['hunks'])
+"let g:airline_section_c = airline#section#create(['%F'])
+"let g:airline_section_x = airline#section#create(['branch', 'ffenc'])
+"let g:airline_section_y = airline#section#create(['filetype'])
+"
+" Nerdtree`
+" Check if NERDTree is open or active
+"function! IsNERDTreeOpen()
+  "return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"endfunction
+""
+"" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+"" file, and we're not in vimdiff
+"function! SyncTree()
+  "if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    "NERDTreeFind
+    "wincmd p
+  "endif
+"endfunction
+"" Highlight currently open buffer in NERDTree
+"autocmd BufEnter * call SyncTree()
+ 
+"function! ToggleNerdTree()
+  "set eventignore=BufEnter
+  "NERDTreeToggle
+  "set eventignore=
+"endfunction
