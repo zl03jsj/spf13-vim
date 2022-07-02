@@ -1,5 +1,8 @@
 color delek
 set nospell
+set relativenumber
+"set noerrorbells
+"set visualbell
 
 " vim-plug: https://github.com/junegunn/vim-plug
 call plug#begin()
@@ -9,6 +12,9 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Or build from source code by using yarn: https://yarnpkg.com
 " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -184,12 +190,17 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-
 " airline 
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
-let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts = 1
+let g:airline_theme='term' " molokai, term, 'luna'
+
+"let g:airline_section_a = airline#section#create(['mode'])
+"let g:airline_section_b = airline#section#create_left(['hunks'])
+"let g:airline_section_c = airline#section#create(['%F'])
+"let g:airline_section_x = airline#section#create(['branch', 'ffenc'])
+"let g:airline_section_y = airline#section#create(['filetype'])
+
 call airline#parts#define_accent('mode', 'none')
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -197,19 +208,19 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "Unicode symbols
-let g:airline_symbols.colnr = ' ㏇:'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = ' ☰ '
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.notexists = 'Ɇ'
+"let g:airline_symbols.colnr = ' ㏇:'
+"let g:airline_symbols.crypt = '🔒'
+"let g:airline_symbols.linenr = ' ☰ '
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.notexists = 'Ɇ'
 "Powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.maxlinenr = ' ☰ '
-let g:airline_symbols.dirty=' ⚡'
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.maxlinenr = ' ☰ '
+"let g:airline_symbols.dirty=' ⚡'
 "Enable/disable nerdtree's statusline integration >
 let g:airline#extensions#nerdtree_statusline = 1
 "air-line with coc-nvim
@@ -219,3 +230,17 @@ let airline#extensions#coc#warning_symbol = 'Warning:'
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 let g:airline#extensions#coc#show_coc_status = 1
+
+" ---------------------> Ack <---------------------
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+" 让ack.vim使用ag作为搜索工具, 先安装ag: brew install ag
+let g:ackprg = 'ag --nogroup --column'
+
+" ---------------------> fzf <---------------------
+" https://www.bilibili.com/video/BV1254y1e71F/?vd_source=6aafb4e5f1c858dd679e8850c5d6f1f7
+" for preview syntax highlight: brew install bat 
+nnoremap <C-f> :Files<Cr>
+nnoremap <C-p> :Buffers<Cr>
+nnoremap <C-h> :History<Cr>
+" let g:fzf_layout = {'down' : '40%'}
