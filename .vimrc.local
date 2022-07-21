@@ -232,4 +232,4 @@ let g:ackprg = 'ag --nogroup --column'
 nnoremap <C-f> :Files<Cr>
 nnoremap <C-p> :Buffers<Cr>
 nnoremap <C-h> :History<Cr>
-let g:fzf_layout = {'down' : '40%'}
+" let g:fzf_layout = {'down' : '40%'}
