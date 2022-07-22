@@ -1,6 +1,7 @@
 color delek
 set nospell
 set relativenumber
+set wrap
 "set noerrorbells
 "set visualbell
 
