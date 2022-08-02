@@ -1,9 +1,7 @@
-color delek
 set nospell
 set relativenumber
 set wrap
-"set noerrorbells
-"set visualbell
+set noerrorbells
 
 " vim-plug: https://github.com/junegunn/vim-plug
 call plug#begin()
@@ -24,6 +22,9 @@ call plug#end()
 " disable default goto key in go-vim
 let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
+
+" format file with "goimports"
+let g:go_fmt_command = "goimports"
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim

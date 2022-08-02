@@ -1058,11 +1058,18 @@
                 let g:airline_left_sep='›'  " Slightly fancier than '>'
                 let g:airline_right_sep='‹' " Slightly fancier than '<'
             endif
+            if isdirectory(expand("~/.vim/bundle/vim-bufferline"))
+                let g:bufferline_echo = 1
+                let g:bufferline_active_highlight = 'StatusLine'
+                let g:bufferline_inactive_highlight = 'StatusLineNC'
+                let g:bufferline_active_buffer_left = ''
+                let g:bufferline_active_buffer_right = ''
+                let g:bufferline_show_bufnr = ' 1 '
+                let g:bufferline_inactive_highlight = 'StatusLineNC'
+                let g:bufferline_active_highlight = 'StatusLine'
+            endif
         endif
     " }
-
-
-
 " }
 
 " GUI Settings {
@@ -1070,7 +1077,7 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
-        set lines=40                " 40 lines of text instead of 24
+        set lines=85                " 80 lines of text instead of 24
         if !exists("g:spf13_no_big_font")
             if LINUX() && has("gui_running")
                 set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
@@ -1080,10 +1087,14 @@
                 set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
+        color delek
+        set background=light
+        set visualbell
     else
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
+        color delek
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
 
