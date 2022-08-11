@@ -681,7 +681,7 @@
 
     " TagBar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
-            nnoremap <silent> <leader>tt :TagbarToggle<CR>
+            nnoremap <silent> <leader><leader>t :TagbarToggle<CR>
         endif
     "}
 
@@ -1070,6 +1070,22 @@
             endif
         endif
     " }
+
+    " easymotion {
+    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+        nmap s <Plug>(easymotion-s2)
+        nmap t <Plug>(easymotion-t2)
+        "" Gif config
+        map  <leader>/ <Plug>(easymotion-sn)
+        omap <leader>/ <Plug>(easymotion-tn)
+
+        " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+        " Without these mappings, `n` & `N` works fine. (These mappings just provide
+        " different highlight method and have some other features )
+        "map n <Plug>(easymotion-next)
+        "map N <Plug>(easymotion-prev)
+    endif
+    " }
 " }
 
 " GUI Settings {
@@ -1087,14 +1103,11 @@
                 set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
-        color delek
-        set background=light
         set visualbell
     else
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
-        color delek
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
 

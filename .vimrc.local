@@ -1,22 +1,21 @@
-set nospell
-set relativenumber
-set wrap
-set noerrorbells
-
 " vim-plug: https://github.com/junegunn/vim-plug
 call plug#begin()
-
 " https://github.com/neoclide/coc.nvim
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Or build from source code by using yarn: https://yarnpkg.com
 " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+Plug 'rakr/vim-one'
 call plug#end()
+
+set nospell
+set relativenumber
+set wrap
+set noerrorbells
+color one
 
 " go-pls
 " disable default goto key in go-vim
@@ -235,3 +234,9 @@ nnoremap <C-f> :Files<Cr>
 nnoremap <C-p> :Buffers<Cr>
 nnoremap <C-h> :History<Cr>
 " let g:fzf_layout = {'down' : '40%'}
+"
+
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
