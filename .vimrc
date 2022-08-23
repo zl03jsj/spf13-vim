@@ -1074,11 +1074,10 @@
     " easymotion {
     if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
         nmap s <Plug>(easymotion-s2)
-        nmap t <Plug>(easymotion-t2)
-        "" Gif config
+        "nmap t <Plug>(easymotion-t2)
+        " Gif config
         map  <leader>/ <Plug>(easymotion-sn)
         omap <leader>/ <Plug>(easymotion-tn)
-
         " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
         " Without these mappings, `n` & `N` works fine. (These mappings just provide
         " different highlight method and have some other features )

@@ -16,6 +16,14 @@ set relativenumber
 set wrap
 set noerrorbells
 color one
+set foldmethod=syntax
+set foldnestmax=1
+set foldlevel=100
+set autoread
+
+" vim-go 在保存时代码折叠状态被重置的问题.
+" autocmd BufWritePost *.go normal! zv
+" let g:go_fmt_experimental = 1
 
 " go-pls
 " disable default goto key in go-vim
@@ -23,7 +31,9 @@ let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 
 " format file with "goimports"
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
+" 由于使用goimports每次保存就状态重新折叠的问题,所以换成了`gopls`
+let g:go_fmt_command = 'gopls'
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -92,6 +102,11 @@ nmap <silent> <leader>y <Plug>(coc-type-definition)
 nmap <silent> <leader>i <Plug>(coc-implementation)
 nmap <silent> <leader>r <Plug>(coc-references)
 
+nmap <silent> <leader>sd :sp<CR><Plug>(coc-definition)
+nmap <silent> <leader>vd :vsp<CR><Plug>(coc-definition)
+" nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T
+
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
@@ -106,7 +121,12 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-highlight CocFloating ctermbg=5
+hi CocFloating term=reverse ctermbg=24
+hi Pmenu term=reverse ctermfg=17 ctermbg=168
+hi PmenuSel term=reverse ctermfg=17 ctermbg=173
+hi CursorColumn guibg=#124b7f term=reverse ctermbg=239
+" hi CursorLine term=underline cterm=underline ctermbg=236 guibg=#2c323c gui=underline
+hi CursorLine ctermbg=236 guibg=#2c323c
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -240,3 +260,10 @@ nnoremap <C-h> :History<Cr>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
