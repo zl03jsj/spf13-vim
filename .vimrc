@@ -178,7 +178,11 @@
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
+        " color solarized             " Load a colorscheme
+    endif
+
+    if !exists('g:override_spf13_bundles') && isdirectory(expand("~/.vim/bundle/vim-one"))
+        color one
     endif
 
     set tabpagemax=15               " Only show 15 tabs
@@ -203,7 +207,8 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        if !exists('g:override_spf13_bundles')
+        if !exists('g:override_spf13_bundles') && exists('g:loaded_fugitive')
+            "set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
             set statusline+=%{fugitive#statusline()} " Git Hotness
         endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
@@ -466,16 +471,16 @@
             let g:go_highlight_build_constraints = 1
             let g:go_fmt_command = "goimports"
             let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-            let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-            au FileType go nmap <Leader>s <Plug>(go-implements)
-            au FileType go nmap <Leader>i <Plug>(go-info)
-            au FileType go nmap <Leader>e <Plug>(go-rename)
-            au FileType go nmap <leader>r <Plug>(go-run)
-            au FileType go nmap <leader>b <Plug>(go-build)
-            au FileType go nmap <leader>t <Plug>(go-test)
-            au FileType go nmap <Leader>gd <Plug>(go-doc)
-            au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-            au FileType go nmap <leader>co <Plug>(go-coverage)
+            let g:go_doc_popup_window = 1
+            " au FileType go nmap <Leader>s <Plug>(go-implements)
+            " au FileType go nmap <Leader>i <Plug>(go-info)
+            " au FileType go nmap <Leader>e <Plug>(go-rename)
+            " au FileType go nmap <leader>r <Plug>(go-run)
+            " au FileType go nmap <leader>b <Plug>(go-build)
+            " au FileType go nmap <leader>t <Plug>(go-test)
+            " au FileType go nmap <Leader>gd <Plug>(go-doc)
+            " au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+            " au FileType go nmap <leader>co <Plug>(go-coverage)
         endif
         " }
 
@@ -574,9 +579,7 @@
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
             nmap <leader>nt :NERDTreeFind<CR>
-
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
@@ -587,11 +590,19 @@
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
+    
+    " NerdCommenter {
+        if isdirectory(expand("~/.vim/bundle/nerdcommenter"))
+            let g:NERDCreateDefaultMappings = 0
+            let g:NERDSpaceDelims = 1
+            map <leader>cc :call nerdcommenter#Comment(0, "toggle")<CR>
+        endif
+    " }
 
     " Tabularize {
         if isdirectory(expand("~/.vim/bundle/tabular"))
-            nmap <Leader>a& :Tabularize /&<CR>
-            vmap <Leader>a& :Tabularize /&<CR>
+            nmap <Leader>a& : Tabularize /&<CR>
+            vmap <Leader>a&     : Tabularize /&<CR>
             nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
             vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
             nmap <Leader>a=> :Tabularize /=><CR>
@@ -710,24 +721,45 @@
 
     " YouCompleteMe {
         if count(g:spf13_bundle_groups, 'youcompleteme')
-            let g:ycm_confirm_extra_conf=1
-            let g:acp_enableAtStartup = 0
+            let g:ycm_confirm_extra_conf=0
+            let g:acp_enableAtStartup=0
+            let g:ycm_add_preview_to_completeopt=0
+            let g:ycm_key_invoke_completion='<c-h>'
+            let g:ycm_seed_identifiers_with_syntax=1
+            nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+            nnoremap <leader>i :YcmCompleter GoToImplementation<cr>
+            nnoremap <leader>o :YcmCompleter GoToDocumentOutline<cr>
+            nnoremap <leader>rn :YcmCompleter RefactorRename
+            nnoremap <leader>rr :YcmCompleter GoToReferences<cr>
+            nmap <silent> <leader>s <Plug>(YCMFindSymbolInWorkspace)
 
-            nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-            " turn off hover info
-            let g:ycm_auto_hover = ''
-            " toggle hover info with F3
-            nmap <silent> <leader>h <plug>(YCMHover)
-            let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-            let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+            let s:ycm_hover_popup = -1
+            nmap <silent> K <plug>(YCMHover)
+
+            " pupup docs by curorhold {
+                " let g:ycm_auto_hover = ''
+                " function s:Hover()
+                  " let response = youcompleteme#GetCommandResponse( 'GetDoc' )
+                  " if response == ''
+                      " let response  = 'There is nothing to display...'
+                  " endif
+                  " call popup_hide( s:ycm_hover_popup )
+                  " let s:ycm_hover_popup = popup_atcursor( balloon_split( response ), {} )
+                " endfunction
+                " autocmd CursorHold * call s:Hover()
+                " nnoremap <silent> K :call <SID>Hover()<CR>
+            " }
+
+            " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+            " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
             " enable completion from tags
-            let g:ycm_collect_identifiers_from_tags_files = 1
+            " let g:ycm_collect_identifiers_from_tags_files = 1
 
-            " remap Ultisnips for compatibility for YCM
-            let g:UltiSnipsExpandTrigger = '<C-j>'
-            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+            " " remap Ultisnips for compatibility for YCM
+            " let g:UltiSnipsExpandTrigger = '<C-j>'
+            " let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+            " let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
             " Enable omni completion.
             autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -1069,9 +1101,21 @@
             endif
         endif
     " }
-
-
-
+    " easymotion {
+        if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+            let g:EasyMotion_smartcase = 1
+            nmap s <Plug>(easymotion-s2)
+            " nmap t <Plug>(easymotion-t2)
+            " " Gif config
+            map  <leader>/ <Plug>(easymotion-sn)
+            omap <leader>/ <Plug>(easymotion-tn)
+            " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+            " Without these mappings, `n` & `N` works fine. (These mappings just provide
+            " different highlight method and have some other features )
+            "map n <Plug>(easymotion-next)
+            "map N <Plug>(easymotion-prev)
+        endif
+    " }
 " }
 
 " GUI Settings {
