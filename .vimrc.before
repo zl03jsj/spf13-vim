@@ -52,7 +52,7 @@
     "   let g:spf13_keep_trailing_whitespace = 1
 
     " Enable powerline symbols
-    "   let g:airline_powerline_fonts = 1
+       let g:airline_powerline_fonts = 1
 
     " vim files directory
     "   let g:spf13_consolidated_directory = <full path to desired directory>
@@ -66,7 +66,7 @@
     "   let g:spf13_noninvasive_completion = 1
 
     " Don't turn conceallevel or concealcursor
-    "   let g:spf13_no_conceal = 1
+       let g:spf13_no_conceal = 1
 
     " For some colorschemes, autocolor will not work (eg: 'desert', 'ir_black')
     " Indent guides will attempt to set your colors smartly. If you

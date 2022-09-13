@@ -80,17 +80,13 @@
 " }
 
 " General {
-
-    set background=dark         " Assume a dark background
-
-    " Allow to trigger background
     function! ToggleBG()
         let s:tbg = &background
         " Inversion
         if s:tbg == "dark"
-            set background=light
-        else
             set background=dark
+        else
+            set background=light
         endif
     endfunction
     noremap <leader>bg :call ToggleBG()<CR>
@@ -126,6 +122,7 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
+    set nospell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -181,7 +178,11 @@
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
+        " color solarized             " Load a colorscheme
+    endif
+
+    if !exists('g:override_spf13_bundles') && isdirectory(expand("~/.vim/bundle/vim-one"))
+        color one
     endif
 
     set tabpagemax=15               " Only show 15 tabs
@@ -206,7 +207,8 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        if !exists('g:override_spf13_bundles')
+        if !exists('g:override_spf13_bundles') && exists('g:loaded_fugitive')
+            "set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
             set statusline+=%{fugitive#statusline()} " Git Hotness
         endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
@@ -216,7 +218,9 @@
 
     set backspace=indent,eol,start  " Backspace for dummies
     set linespace=0                 " No extra spaces between rows
-    set number                      " Line numbers on
+    "set number                      " Line numbers on
+    set relativenumber
+    set number
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
     set hlsearch                    " Highlight search terms
@@ -236,7 +240,7 @@
 
 " Formatting {
 
-    set nowrap                      " Do not wrap long lines
+    set wrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
@@ -446,6 +450,7 @@
     map zl zL
     map zh zH
 
+
     " Easier formatting
     nnoremap <silent> <leader>q gwip
 
@@ -456,26 +461,20 @@
 " }
 
 " Plugins {
-
     " GoLang {
         if count(g:spf13_bundle_groups, 'go')
             let g:go_highlight_functions = 1
             let g:go_highlight_methods = 1
             let g:go_highlight_structs = 1
             let g:go_highlight_operators = 1
+            let g:go_highlight_extra_types = 1
             let g:go_highlight_build_constraints = 1
-            let g:go_fmt_command = "goimports"
+            let g:go_doc_popup_window = 1
+            let g:go_def_mapping_enabled = 0
+            let g:go_doc_keywordprg_enabled = 0
+            " let g:go_fmt_command = "goimports" " 导致折叠状态无法保留, 所以使用'gopls'
+            let g:go_fmt_command = 'gopls'
             let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-            let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-            au FileType go nmap <Leader>s <Plug>(go-implements)
-            au FileType go nmap <Leader>i <Plug>(go-info)
-            au FileType go nmap <Leader>e <Plug>(go-rename)
-            au FileType go nmap <leader>r <Plug>(go-run)
-            au FileType go nmap <leader>b <Plug>(go-build)
-            au FileType go nmap <leader>t <Plug>(go-test)
-            au FileType go nmap <Leader>gd <Plug>(go-doc)
-            au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-            au FileType go nmap <leader>co <Plug>(go-coverage)
         endif
         " }
 
@@ -574,24 +573,30 @@
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
             nmap <leader>nt :NERDTreeFind<CR>
-
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
-            " let NERDTreeQuitOnOpen=1
+            let NERDTreeQuitOnOpen=0
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=1
             let NERDTreeKeepTreeInNewTab=1
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
+    
+    " NerdCommenter {
+        if isdirectory(expand("~/.vim/bundle/nerdcommenter"))
+            let g:NERDCreateDefaultMappings = 0
+            let g:NERDSpaceDelims = 1
+            map <leader>cc :call nerdcommenter#Comment(0, "toggle")<CR>
+        endif
+    " }
 
     " Tabularize {
         if isdirectory(expand("~/.vim/bundle/tabular"))
-            nmap <Leader>a& :Tabularize /&<CR>
-            vmap <Leader>a& :Tabularize /&<CR>
+            nmap <Leader>a& : Tabularize /&<CR>
+            vmap <Leader>a&     : Tabularize /&<CR>
             nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
             vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
             nmap <Leader>a=> :Tabularize /=><CR>
@@ -710,15 +715,45 @@
 
     " YouCompleteMe {
         if count(g:spf13_bundle_groups, 'youcompleteme')
-            let g:acp_enableAtStartup = 0
+            let g:ycm_confirm_extra_conf=0
+            let g:acp_enableAtStartup=0
+            let g:ycm_add_preview_to_completeopt=0
+            let g:ycm_key_invoke_completion='<c-h>'
+            let g:ycm_seed_identifiers_with_syntax=1
+            nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+            nnoremap <leader>i :YcmCompleter GoToImplementation<cr>
+            nnoremap <leader>o :YcmCompleter GoToDocumentOutline<cr>
+            nnoremap <leader>rn :YcmCompleter RefactorRename
+            nnoremap <leader>rr :YcmCompleter GoToReferences<cr>
+            nmap <silent> <leader>s <Plug>(YCMFindSymbolInWorkspace)
+
+            let s:ycm_hover_popup = -1
+            nmap <silent> K <plug>(YCMHover)
+
+            " pupup docs by curorhold {
+                " let g:ycm_auto_hover = ''
+                " function s:Hover()
+                  " let response = youcompleteme#GetCommandResponse( 'GetDoc' )
+                  " if response == ''
+                      " let response  = 'There is nothing to display...'
+                  " endif
+                  " call popup_hide( s:ycm_hover_popup )
+                  " let s:ycm_hover_popup = popup_atcursor( balloon_split( response ), {} )
+                " endfunction
+                " autocmd CursorHold * call s:Hover()
+                " nnoremap <silent> K :call <SID>Hover()<CR>
+            " }
+
+            " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+            " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
             " enable completion from tags
-            let g:ycm_collect_identifiers_from_tags_files = 1
+            " let g:ycm_collect_identifiers_from_tags_files = 1
 
-            " remap Ultisnips for compatibility for YCM
-            let g:UltiSnipsExpandTrigger = '<C-j>'
-            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+            " " remap Ultisnips for compatibility for YCM
+            " let g:UltiSnipsExpandTrigger = '<C-j>'
+            " let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+            " let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
             " Enable omni completion.
             autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -747,6 +782,158 @@
             " When enabled, there can be too much visual noise
             " especially when splits are used.
             set completeopt-=preview
+        endif
+    " }
+
+    " coc.nvim  {
+        if count(g:spf13_bundle_groups, 'coc')
+            let g:python3_host_prog='/usr/local/Cellar/python@3.9/3.9.14/'
+            if has('nvim')
+              "" Recently vim can merge signcolumn and number column into one
+              set signcolumn=number
+              " Use <c-space> to trigger completion.
+              inoremap <silent><expr> <c-2> coc#refresh()
+              " Use tab for trigger completion with characters ahead and navigate.
+              " NOTE: There's always complete item selected by default, you may want to enable
+              " no select by `"suggest.noselect": true` in your configuration file.
+              " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+              " other plugin before putting this into your config.
+              inoremap <silent><expr> <TAB>
+                    \ coc#pum#visible() ? coc#pum#next(1) :
+                    \ CheckBackspace() ? "\<Tab>" :
+                    \ coc#refresh()
+              inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+              inoremap <silent><expr> <down>
+                    \ coc#pum#visible() ? coc#pum#next(1) :
+                    \ CheckBackspace() ? "\<Tab>" :
+                    \ coc#refresh()
+              inoremap <expr><up> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+              
+              " Make <CR> to accept selected completion item or notify coc.nvim to format
+              " <C-g>u breaks current undo, please make your own choice.
+              inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                                            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            else
+              inoremap <silent><expr> <c-@> coc#refresh()
+            " Use tab for trigger completion with characters ahead and navigate.
+            " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+            " other plugin before putting this into your config.
+              inoremap <silent><expr> <TAB>
+                    \ pumvisible() ? "\<C-n>" :
+                    \ CheckBackspace() ? "\<TAB>" :
+                    \ coc#refresh()
+              inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+            " Make <CR> auto-select the first completion item and notify coc.nvim to
+            " format on enter, <cr> could be remapped by other vim plugin
+              inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                          \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            endif
+
+            function! CheckBackspace() abort
+              let col = col('.') - 1
+              return !col || getline('.')[col - 1]  =~# '\s'
+            endfunction
+
+            " Use `[g` and `]g` to navigate diagnostics
+            " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+            nmap <silent> [g <Plug>(coc-diagnostic-prev)
+            nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+            " GoTo code navigation.
+            nmap <silent> <leader>d <Plug>(coc-definition)
+            nmap <silent> <leader>y <Plug>(coc-type-definition)
+            nmap <silent> <leader>i <Plug>(coc-implementation)
+            nmap <silent> <leader>r <Plug>(coc-references)
+            nmap <silent> <leader>sd :sp<CR><Plug>(coc-definition)
+            nmap <silent> <leader>vd :vsp<CR><Plug>(coc-definition)
+            " nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T Symbol renaming.
+            nmap <leader>rn <Plug>(coc-rename)
+            " Formatting selected code.
+            xmap <leader>f  <Plug>(coc-format-selected)
+            nmap <leader>f  <Plug>(coc-format-selected)
+            " Applying codeAction to the selected region.
+            " Example: `<leader>aap` for current paragraph
+            xmap <leader>a  <Plug>(coc-codeaction-selected)
+            nmap <leader>a  <Plug>(coc-codeaction-selected)
+            " Use K to show documentation in preview window.
+            nnoremap <silent> K :call ShowDocumentation()<CR>
+            " Mappings for CoCList {
+                " Show all diagnostics.
+                nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+                " Manage extensions.
+                nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
+                " Show commands.
+                nnoremap <silent><nowait> <leader>c  :<C-u>CocList commands<cr>
+                " Find symbol of current document.
+                nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+                " Search workspace symbols.
+                nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+                " Resume latest coc list.
+                nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+            " }
+            " Do default action for next item.
+            nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
+            " Do default action for previous item.
+            nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
+            " Remap keys for applying codeAction to the current buffer.
+            nmap <leader>ac  <Plug>(coc-codeaction)
+            " Apply AutoFix to problem on the current line.
+            nmap <leader>qf  <Plug>(coc-fix-current)
+
+            " Run the Code Lens action on the current line.
+            nmap <leader>cl  <Plug>(coc-codelens-action)
+
+            " Map function and class text objects
+            " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+            xmap if <Plug>(coc-funcobj-i)
+            omap if <Plug>(coc-funcobj-i)
+            xmap af <Plug>(coc-funcobj-a)
+            omap af <Plug>(coc-funcobj-a)
+            xmap ic <Plug>(coc-classobj-i)
+            omap ic <Plug>(coc-classobj-i)
+            xmap ac <Plug>(coc-classobj-a)
+            omap ac <Plug>(coc-classobj-a)
+
+            " Use CTRL-S for selections ranges.
+            " Requires 'textDocument/selectionRange' support of language server.
+            nmap <silent> <C-s> <Plug>(coc-range-select)
+            xmap <silent> <C-s> <Plug>(coc-range-select)
+
+
+            function! ShowDocumentation()
+              if CocAction('hasProvider', 'hover')
+                call CocActionAsync('doHover')
+              else
+                call feedkeys('K', 'in')
+              endif
+            endfunction
+            " Highlight the symbol and its references when holding the cursor.
+            " autocmd CursorHold * silent call CocActionAsync('highlight')
+            
+            hi CocFloating term=reverse ctermbg=24
+
+            augroup mygroup
+              autocmd!
+              " Setup formatexpr specified filetype(s).
+              autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+              " Update signature help on jump placeholder.
+              autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+            augroup end
+
+            " Add `:Format` command to format current buffer.
+            command! -nargs=0 Format :call CocActionAsync('format')
+
+            " Add `:Fold` command to fold current buffer.
+            command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+            " Add `:OR` command for organize imports of the current buffer.
+            command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+            " Add (Neo)Vim's native statusline support.
+            " NOTE: Please see `:h coc-status` for integrations with external plugins that
+            " provide custom statusline: lightline.vim, vim-airline.
+            set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
         endif
     " }
 
@@ -1043,15 +1230,31 @@
         " Use the powerline theme and optionally enable powerline symbols.
         " To use the symbols , , , , , , and .in the statusline
         " segments add the following to your .vimrc.before.local file:
-        "   let g:airline_powerline_fonts=1
+        let g:airline_powerline_fonts=1
         " If the previous symbols do not render for you then install a
         " powerline enabled font.
+        let g:airline_detect_modified=1
+        let g:airline_theme='molokai' " term, 'luna'
 
+        call airline#parts#define_accent('mode', 'none')
+        if !exists('g:airline_symbols')
+            let g:airline_symbols = {}
+        endif
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#nerdtree_statusline = 1
+        let g:airline#extensions#tabline#formatter = 'unique_tail'
+        "air-line with coc-nvim
+        let g:airline#extensions#coc#enabled = 0
+        let g:airline#extensions#coc#show_coc_status = 1
+        let g:airline#extensions#coc#error_symbol = 'Error:'
+        let airline#extensions#coc#warning_symbol = 'Warning:'
+        let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+        let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
         if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
             if !exists('g:airline_theme')
-                let g:airline_theme = 'solarized'
+                "let g:airline_theme = 'solarized'
             endif
             if !exists('g:airline_powerline_fonts')
                 " Use the default set of separators with a few customizations
@@ -1070,20 +1273,20 @@
             endif
         endif
     " }
-
     " easymotion {
-    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
-        nmap s <Plug>(easymotion-s2)
-        "nmap t <Plug>(easymotion-t2)
-        " Gif config
-        map  <leader>/ <Plug>(easymotion-sn)
-        omap <leader>/ <Plug>(easymotion-tn)
-        " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-        " Without these mappings, `n` & `N` works fine. (These mappings just provide
-        " different highlight method and have some other features )
-        "map n <Plug>(easymotion-next)
-        "map N <Plug>(easymotion-prev)
-    endif
+        if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+            let g:EasyMotion_smartcase = 1
+            nmap s <Plug>(easymotion-s2)
+            " nmap t <Plug>(easymotion-t2)
+            " " Gif config
+            map  <leader>/ <Plug>(easymotion-sn)
+            omap <leader>/ <Plug>(easymotion-tn)
+            " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+            " Without these mappings, `n` & `N` works fine. (These mappings just provide
+            " different highlight method and have some other features )
+            "map n <Plug>(easymotion-next)
+            "map N <Plug>(easymotion-prev)
+        endif
     " }
 " }
 
@@ -1093,13 +1296,16 @@
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
         set lines=85                " 80 lines of text instead of 24
+        set columns=160
         if !exists("g:spf13_no_big_font")
             if LINUX() && has("gui_running")
-                set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
+                set guifont=Ubuntu\ Mono\ derivative\ Powerline:h12,Ubuntu\
+                Mono:h11,Andale\ Mono\ Regular\ 12,Menlo\ Regular\
+                11,Consolas\ Regular\ 12,Courier\ New\ Regular:h14
             elseif OSX() && has("gui_running")
                 set guifont=MesloLGS\ NF:h10,Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
             elseif WINDOWS() && has("gui_running")
-                set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+                set guifont=Ubuntu\ Mono:h12,Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
         set visualbell
