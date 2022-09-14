@@ -934,12 +934,8 @@
             " NOTE: Please see `:h coc-status` for integrations with external plugins that
             " provide custom statusline: lightline.vim, vim-airline.
             set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
             hi CocFloating term=reverse ctermbg=24
-            hi Pmenu term=reverse ctermfg=17 ctermbg=168
-            hi PmenuSel term=reverse ctermfg=17 ctermbg=173
-            hi CursorColumn guibg=#124b7f term=reverse ctermbg=239
-            " hi CursorLine term=underline cterm=underline ctermbg=236 guibg=#2c323c gui=underline
-            hi CursorLine ctermbg=236 guibg=#2c323c
         endif
     " }
 

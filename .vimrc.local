@@ -40,8 +40,7 @@ endif
 hi CocFloating term=reverse ctermbg=24
 hi Pmenu term=reverse ctermfg=17 ctermbg=168
 hi PmenuSel term=reverse ctermfg=17 ctermbg=173
-hi CursorColumn guibg=#124b7f term=reverse ctermbg=239
-" hi CursorLine term=underline cterm=underline ctermbg=236 guibg=#2c323c gui=underline
+hi CursorColumn guibg=#124b7f term=reverse ctermbg=24
 hi CursorLine ctermbg=236 guibg=#2c323c
 
 " ---------------------> Ack <---------------------
