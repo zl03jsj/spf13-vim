@@ -1,0 +1,2 @@
+- [ ] Since `Vundle` is deprecated, use `https://github.com/junegunn/vim-plug` to manage plugins.
+- [ ] Add an auto installation shell, to link `.vimrc.xxx` under this repository to `~/.vimrc.xxx`
