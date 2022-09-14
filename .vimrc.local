@@ -1,7 +1,11 @@
 set relativenumber
 set wrap
+set foldenable
 set foldmethod=syntax
-set foldnestmax=1
+set foldnestmax=2
+set foldcolumn=1
+setlocal foldlevel=1
+set foldlevelstart=99
 set autoread
 set vb t_vb=
 set visualbell
@@ -33,11 +37,6 @@ else
   set signcolumn=yes
 endif
 
-" hi Pmenu term=reverse ctermfg=17 ctermbg=168
-" hi PmenuSel term=reverse ctermfg=17 ctermbg=173
-" hi CursorColumn guibg=#124b7f term=reverse ctermbg=239
-" " hi CursorLine term=underline cterm=underline ctermbg=236 guibg=#2c323c gui=underline
-" hi CursorLine ctermbg=236 guibg=#2c323c
 hi CocFloating term=reverse ctermbg=24
 hi Pmenu term=reverse ctermfg=17 ctermbg=168
 hi PmenuSel term=reverse ctermfg=17 ctermbg=173
@@ -49,7 +48,7 @@ hi CursorLine ctermbg=236 guibg=#2c323c
 cnoreabbrev Ack Ack!
 nnoremap <nowait> <Leader><Leader>a :Ack!<Space>
 " 让ack.vim使用ag作为搜索工具, 先安装ag: brew install ag
-let g:ackprg = 'ag --nogroup --column'
+" let g:ackprg = 'ag --nogroup --column'
 
 " ---------------------> fzf <---------------------
 " https://www.bilibili.com/video/BV1254y1e71F/?vd_source=6aafb4e5f1c858dd679e8850c5d6f1f7
