@@ -788,6 +788,8 @@
     " coc.nvim  {
         if count(g:spf13_bundle_groups, 'coc')
             let g:python3_host_prog='/usr/local/Cellar/python@3.9/3.9.14/'
+            " Highlight the symbol and its references when holding the cursor.
+            autocmd CursorHold * silent call CocActionAsync('highlight')
             if has('nvim')
               "" Recently vim can merge signcolumn and number column into one
               set signcolumn=number
@@ -911,8 +913,6 @@
             " Highlight the symbol and its references when holding the cursor.
             " autocmd CursorHold * silent call CocActionAsync('highlight')
             
-            hi CocFloating term=reverse ctermbg=24
-
             augroup mygroup
               autocmd!
               " Setup formatexpr specified filetype(s).
@@ -934,6 +934,12 @@
             " NOTE: Please see `:h coc-status` for integrations with external plugins that
             " provide custom statusline: lightline.vim, vim-airline.
             set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+            hi CocFloating term=reverse ctermbg=24
+            hi Pmenu term=reverse ctermfg=17 ctermbg=168
+            hi PmenuSel term=reverse ctermfg=17 ctermbg=173
+            hi CursorColumn guibg=#124b7f term=reverse ctermbg=239
+            " hi CursorLine term=underline cterm=underline ctermbg=236 guibg=#2c323c gui=underline
+            hi CursorLine ctermbg=236 guibg=#2c323c
         endif
     " }
 

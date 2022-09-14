@@ -1,0 +1,38 @@
+{
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod"
+            ],
+            "filetypes": [
+                "go"
+            ]
+        }
+    },
+    "go.goplsOptions": {
+        "staticcheck": true
+    },
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportGeneralTypeIssues": "none",
+        "reportUnusedImport": "warning",
+        "reportUnusedClass": "warning",
+        "reportUnusedFunction": "warning",
+        "reportUnusedVariable": "warning"
+    },
+    "python.pythonPath": "/usr/local/opt/python/bin/python3",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E501,W601"
+    ],
+    "colors.filetypes": ["*"],
+    "coc.preferences.jumpCommand": "drop",
+    "diagnostic.checkCurrentLine": true,
+    "tsserver.npm": "/usr/local/bin/npm",
+
+    "rust-analyzer.rustfmt.enableRangeFormatting": true,
+    "rust-analyzer.updates.checkOnStartup": false,
+    "rust-analyzer.updates.channel": "stable"
+}

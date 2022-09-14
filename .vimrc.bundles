@@ -170,7 +170,8 @@
 
     " Snippets & AutoComplete {
         if count(g:spf13_bundle_groups, 'coc')
-            Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+            " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+            Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}            
         elseif count(g:spf13_bundle_groups, 'snipmate')
             Bundle 'garbas/vim-snipmate'
             Bundle 'honza/vim-snippets'
