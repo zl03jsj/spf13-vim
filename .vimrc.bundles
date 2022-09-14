@@ -172,6 +172,7 @@
         if count(g:spf13_bundle_groups, 'coc')
             " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
             Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}            
+            Plugin 'antoinemadec/coc-fzf', {'branch': 'release'}
         elseif count(g:spf13_bundle_groups, 'snipmate')
             Bundle 'garbas/vim-snipmate'
             Bundle 'honza/vim-snippets'

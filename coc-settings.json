@@ -34,5 +34,6 @@
 
     "rust-analyzer.rustfmt.enableRangeFormatting": true,
     "rust-analyzer.updates.checkOnStartup": false,
-    "rust-analyzer.updates.channel": "stable"
+    "rust-analyzer.updates.channel": "stable",
+    "marketplace.npmsio":true
 }
