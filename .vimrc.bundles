@@ -89,6 +89,7 @@
         Plugin 'rakr/vim-one'
         Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plugin 'junegunn/fzf.vim' 
+        Plugin 'catppuccin/nvim', {'as': 'catppuccin'}
     " }
 
     " In your .vimrc.before.local file

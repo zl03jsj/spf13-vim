@@ -37,11 +37,15 @@ else
   set signcolumn=yes
 endif
 
-hi CocFloating term=reverse ctermbg=24
-hi Pmenu term=reverse ctermfg=17 ctermbg=168
-hi PmenuSel term=reverse ctermfg=17 ctermbg=173
+
+if g:colors_name == 'catppuccin' 
+  hi NormalFloat term=reverse ctermbg=24 guifg=#cdd6f4 guibg=#353535
+endif
+" hi Pmenu term=reverse ctermfg=17 ctermbg=168
+" hi PmenuSel term=reverse ctermfg=17 ctermbg=173
+" hi CursorLine ctermbg=236 guibg=#2c323c
+hi default link CocFloating NormalFloat
 hi CursorColumn guibg=#124b7f term=reverse ctermbg=24
-hi CursorLine ctermbg=236 guibg=#2c323c
 
 " ---------------------> Ack <---------------------
 cnoreabbrev Ack Ack!

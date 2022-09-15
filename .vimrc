@@ -172,16 +172,19 @@
 " }
 
 " Vim UI {
-
-    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    if isdirectory(expand("~/.vim/bundle/nvim"))
+        let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+lua << EOF
+require("catppuccin").setup()
+EOF
+        color catppuccin
+    elseif !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        " color solarized             " Load a colorscheme
-    endif
-
-    if !exists('g:override_spf13_bundles') && isdirectory(expand("~/.vim/bundle/vim-one"))
+        color solarized             " Load a colorscheme
+    elseif !exists('g:override_spf13_bundles') && isdirectory(expand("~/.vim/bundle/vim-one"))
         color one
     endif
 
@@ -787,7 +790,7 @@
 
     " coc.nvim  {
         if count(g:spf13_bundle_groups, 'coc')
-            let g:python3_host_prog='/usr/local/Cellar/python@3.9/3.9.14/'
+            " let g:python3_host_prog='/usr/local/Cellar/python@3.9/3.9.14/'
             " Highlight the symbol and its references when holding the cursor.
             autocmd CursorHold * silent call CocActionAsync('highlight')
             if has('nvim')
@@ -846,7 +849,7 @@
             nmap <silent> <leader>d <Plug>(coc-definition)
             nmap <silent> <leader>y <Plug>(coc-type-definition)
             nmap <silent> <leader>i <Plug>(coc-implementation)
-            nmap <silent> <leader>r <Plug>(coc-references)
+            nmap <silent> <leader>l <Plug>(coc-references)
             nmap <silent> <leader>sd :sp<CR><Plug>(coc-definition)
             nmap <silent> <leader>vd :vsp<CR><Plug>(coc-definition)
             " nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T Symbol renaming.
@@ -862,17 +865,19 @@
             nnoremap <silent> K :call ShowDocumentation()<CR>
             " Mappings for CoCList {
                 " Show all diagnostics.
-                nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+                nnoremap <silent><nowait> <leader>a  :<C-u>CocFzfList diagnostics<cr>
                 " Manage extensions.
-                nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
+                nnoremap <silent><nowait> <leader>e  :<C-u>CocFzfList extensions<cr>
                 " Show commands.
-                nnoremap <silent><nowait> <leader>c  :<C-u>CocList commands<cr>
+                nnoremap <silent><nowait> <leader>c  :<C-u>CocFzfList commands<cr>
                 " Find symbol of current document.
-                nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+                nnoremap <silent><nowait> <leader>o  :<C-u>CocFzfList outline<cr>
                 " Search workspace symbols.
-                nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+                nnoremap <silent><nowait> <leader>s  :<C-u>CocFzfList symbols<cr>
                 " Resume latest coc list.
                 nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+
+                nnoremap <silent><nowait> <leader>l  :<C-u>CocFzfList location<CR>
             " }
             " Do default action for next item.
             nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
@@ -934,8 +939,7 @@
             " NOTE: Please see `:h coc-status` for integrations with external plugins that
             " provide custom statusline: lightline.vim, vim-airline.
             set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-            hi CocFloating term=reverse ctermbg=24
+            
         endif
     " }
 
@@ -1195,6 +1199,7 @@
             set completeopt-=preview
         endif
     " }
+    "
 
     " FIXME: Isn't this for Syntastic to handle?
     " Haskell post write lint and check with ghcmod
