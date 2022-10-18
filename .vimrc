@@ -173,7 +173,7 @@
 
 " Vim UI {
     if isdirectory(expand("~/.vim/bundle/nvim"))
-        let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+        let g:catppuccin_flavour = "frappe" " latte, frappe, macchiato, mocha
 lua << EOF
 require("catppuccin").setup()
 EOF
@@ -849,7 +849,7 @@ EOF
             nmap <silent> <leader>d <Plug>(coc-definition)
             nmap <silent> <leader>y <Plug>(coc-type-definition)
             nmap <silent> <leader>i <Plug>(coc-implementation)
-            nmap <silent> <leader>l <Plug>(coc-references)
+            nmap <silent> <leader>r <Plug>(coc-references)
             nmap <silent> <leader>sd :sp<CR><Plug>(coc-definition)
             nmap <silent> <leader>vd :vsp<CR><Plug>(coc-definition)
             " nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T Symbol renaming.
@@ -876,8 +876,8 @@ EOF
                 nnoremap <silent><nowait> <leader>s  :<C-u>CocFzfList symbols<cr>
                 " Resume latest coc list.
                 nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
-
-                nnoremap <silent><nowait> <leader>l  :<C-u>CocFzfList location<CR>
+                let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
+                " nnoremap <silent><nowait> <leader>l  :<C-u>CocFzfList location<CR>
             " }
             " Do default action for next item.
             nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
@@ -1247,7 +1247,7 @@ EOF
         if !exists('g:airline_symbols')
             let g:airline_symbols = {}
         endif
-        let g:airline#extensions#tabline#enabled = 1
+        " let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#nerdtree_statusline = 1
         let g:airline#extensions#tabline#formatter = 'unique_tail'
         "air-line with coc-nvim

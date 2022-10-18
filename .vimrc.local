@@ -11,7 +11,7 @@ set vb t_vb=
 set visualbell
 set noerrorbells
 set smartcase
-set background=dark
+" set background=dark
 autocmd VimEnter * set nospell
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -38,14 +38,18 @@ else
 endif
 
 
-if g:colors_name == 'catppuccin' 
+if exists('g:colors_name') && g:colors_name == 'catppuccin' 
   hi NormalFloat term=reverse ctermbg=24 guifg=#cdd6f4 guibg=#353535
 endif
+hi default link CocFloating NormalFloat
+if &background == 'light'
+  hi CursorColumn guibg=#72abcf term=reverse ctermbg=24
+else 
+  hi CursorColumn guibg=#124b7f term=reverse ctermbg=24
+endif 
 " hi Pmenu term=reverse ctermfg=17 ctermbg=168
 " hi PmenuSel term=reverse ctermfg=17 ctermbg=173
 " hi CursorLine ctermbg=236 guibg=#2c323c
-hi default link CocFloating NormalFloat
-hi CursorColumn guibg=#124b7f term=reverse ctermbg=24
 
 " ---------------------> Ack <---------------------
 cnoreabbrev Ack Ack!

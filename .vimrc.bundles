@@ -25,7 +25,7 @@
 
     " Basics {
         set nocompatible        " Must be first line
-        set background=dark     " Assume a dark background
+        "set background=dark     " Assume a dark background
     " }
 
     " Windows Compatible {
@@ -136,7 +136,7 @@
                 Bundle 'vim-scripts/restore_view.vim'
             endif
             Bundle 'jlanzarotta/bufexplorer'
-            "Bundle 'mhinz/vim-signify'
+            Plugin 'mhinz/vim-signify'
             "Bundle 'tpope/vim-abolish.git'
             "Bundle 'osyo-manga/vim-over'
             "Bundle 'kana/vim-textobj-user'
