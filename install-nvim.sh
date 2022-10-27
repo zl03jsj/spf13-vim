@@ -40,6 +40,7 @@ mkdir ~/.config/nvim && \
 # CocInstall coc-rust-analyzer
 # CocInstall coc-json
 # CocInstall coc-tsserver
+# CocInstall coc-fzf-preview
 
 
 # 设置git ssh代理。
