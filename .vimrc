@@ -575,7 +575,7 @@ EOF
 
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
-            map <C-e> <plug>NERDTreeToggle<CR>
+            map <C-e> :NERDTreeToggle<CR>
             nmap <leader>nt :NERDTreeFind<CR>
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -797,7 +797,7 @@ EOF
               "" Recently vim can merge signcolumn and number column into one
               set signcolumn=number
               " Use <c-space> to trigger completion.
-              inoremap <silent><expr> <c-2> coc#refresh()
+              inoremap <silent><expr> <c-space> coc#refresh()
               " Use tab for trigger completion with characters ahead and navigate.
               " NOTE: There's always complete item selected by default, you may want to enable
               " no select by `"suggest.noselect": true` in your configuration file.
