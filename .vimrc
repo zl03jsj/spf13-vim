@@ -849,7 +849,7 @@ EOF
             nmap <silent> <leader>d <Plug>(coc-definition)
             nmap <silent> <leader>y <Plug>(coc-type-definition)
             nmap <silent> <leader>i <Plug>(coc-implementation)
-            nmap <silent> <leader>l <Plug>(coc-references)
+            nmap <silent> <leader>r <Plug>(coc-references)
             nmap <silent> <leader>sd :sp<CR><Plug>(coc-definition)
             nmap <silent> <leader>vd :vsp<CR><Plug>(coc-definition)
             " nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T Symbol renaming.
@@ -1242,12 +1242,12 @@ EOF
         " powerline enabled font.
         let g:airline_detect_modified=1
         let g:airline_theme='molokai' " term, 'luna'
-
         call airline#parts#define_accent('mode', 'none')
         if !exists('g:airline_symbols')
             let g:airline_symbols = {}
         endif
-        let g:airline#extensions#tabline#enabled = 1
+        " enable tabline would cause bad performence on switching between buffers.
+        let g:airline#extensions#tabline#enabled = 0
         let g:airline#extensions#nerdtree_statusline = 1
         let g:airline#extensions#tabline#formatter = 'unique_tail'
         "air-line with coc-nvim

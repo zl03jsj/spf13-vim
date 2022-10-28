@@ -39,7 +39,7 @@ endif
 
 
 if g:colors_name == 'catppuccin' 
-  hi NormalFloat term=reverse ctermbg=24 guifg=#cdd6f4 guibg=#353535
+  " hi NormalFloat term=reverse ctermbg=24 guifg=#cdd6f4 guibg=#353535
 endif
 " hi Pmenu term=reverse ctermfg=17 ctermbg=168
 " hi PmenuSel term=reverse ctermfg=17 ctermbg=173
