@@ -35,3 +35,6 @@ content:
 
 -javaagent:/Users/zl/Downloads/jetbra/ja-netfilter.jar=jetbrains
 ```
+
+#### idea hot key 绑定方案
+https://danidiaz.medium.com/configuring-ideavimrc-de16a4da0715
