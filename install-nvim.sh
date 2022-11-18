@@ -23,6 +23,8 @@
 #npm install --global yarn
 # 用于vim中，fzf 查找全局symbol时需要的命令， 否则会报错。
 #pip3 install pynvim
+# jedi，用于支持python跳转
+#pip3 install jedi
 # 安装rust
 #curl https://sh.rustup.rs -sSf | sh
 
@@ -56,7 +58,7 @@ mkdir ~/.config/nvim && \
 # CocInstall coc-json
 # CocInstall coc-tsserver
 # CocInstall coc-fzf-preview
-
+# CocInstall coc-python
 
 # 设置git ssh代理：~/.ssh/config
 # Host github.com *.github.com
