@@ -35,7 +35,7 @@ rm -f ~/.vimrc*
 ln -s -f /Users/zl/.spf13/.vimrc ~/.vimrc
 ln -s -f /Users/zl/.spf13/.vimrc.before ~/.vimrc.before
 ln -s -f /Users/zl/.spf13/.vimrc.fork ~/.vimrc.fork
-ln -s -f /Users/zl/.spf13/.vimrc.before.fork
+ln -s -f /Users/zl/.spf13/.vimrc.before.fork ~/.vimrc.before.fork 
 ln -s -f /Users/zl/.spf13/.vimrc.local ~/.vimrc.local
 ln -s -f /Users/zl/.spf13/.vimrc.bundles ~/.vimrc.bundles
 ln -s -f /Users/zl/.spf13/.vimrc.bundles.default ~/.vimrc.bundles.default
