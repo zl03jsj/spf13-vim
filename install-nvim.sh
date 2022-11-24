@@ -1,35 +1,32 @@
 #https://srayx.pro/#/login
 #
-# curl https://iterm2.com/downloads/stable/iTerm2-3_4_17.zip
+curl https://iterm2.com/downloads/stable/iTerm2-3_4_17.zip
 #
 # install ohmyzsh
-#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #
 # install ohmyzsh theme p10k
-#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # install homebrew
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install zsh plugins
-#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-#brew install autojump
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # 安装常用工具
-#brew install ctags
-#brew install node
-#brew install pkg-config
-#brew install bat # 用于vim中 fzf preview window的语法高亮
-#npm install --global yarn
+brew install ctags node ack ag pkg-config autojump bat # bat 用于vim中 fzf preview window的语法高亮
+npm install --global yarn
+#
 # 用于vim中，fzf 查找全局symbol时需要的命令， 否则会报错。
-#pip3 install pynvim
-# jedi，用于支持python跳转
-#pip3 install jedi
-# 安装rust
-#curl https://sh.rustup.rs -sSf | sh
+pip3 install pynvim, jedi // jedi 用于支持python的语法跳转
 
-#sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# 安装rust
+curl https://sh.rustup.rs -sSf | sh
+
+# 为neovim安装plug插件
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 rm -f ~/.vimrc*
 ln -s -f /Users/zl/.spf13/.vimrc ~/.vimrc
@@ -48,17 +45,12 @@ mkdir ~/.config/nvim && \
 
 
 # cd ~/.vim/bundle/coc.nvim && yarn install --frozen-lockfile
-
+#
 # 安装vim-go插件
 # GoInstallBinaries
 # 安装coc extension
-# CocInstall coc-marketplace
-# CocInstall coc-tsserver
-# CocInstall coc-rust-analyzer
-# CocInstall coc-json
-# CocInstall coc-tsserver
-# CocInstall coc-fzf-preview
-# CocInstall coc-python
+#
+# CocInstall coc-marketplace coc-tsserver coc-rust-analyzer coc-json coc-tsserver coc-fzf-preview coc-python
 
 # 设置git ssh代理：~/.ssh/config
 # Host github.com *.github.com
@@ -71,6 +63,6 @@ mkdir ~/.config/nvim && \
 #
 # 设置go环境变量
 # go env -w GO111MODULE=on
-# go env -w GOPRIVATE="gitlab.forceup.in
+# go env -w GOPRIVATE="gitlab.forceup.in"
 # go env -w GOPROXY="https://proxy.golang.org,direct"
-# go env -w GOINSECURE="goproxy.io,gitlab.forceup.in
+# go env -w GOINSECURE="goproxy.io,gitlab.forceup.in"

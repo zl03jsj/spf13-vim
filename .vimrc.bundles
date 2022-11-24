@@ -60,7 +60,6 @@
 " Plugs {
 
     " Deps {
-        Plug 'gmarik/vundle'
         Plug 'MarcWeber/vim-addon-mw-utils'
         Plug 'tomtom/tlib_vim'
         if executable('ag')
@@ -158,10 +157,10 @@
     " }
 
     " Snippets & AutoComplete {
-        if count(g:spf13_bundle_groups, 'coc')
-            Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-            Plug 'antoinemadec/coc-fzf'
-        elseif count(g:spf13_bundle_groups, 'snipmate')
+        " if count(g:spf13_bundle_groups, 'coc')
+            " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+            " Plug 'antoinemadec/coc-fzf'
+        if count(g:spf13_bundle_groups, 'snipmate')
             Plug 'garbas/vim-snipmate'
             Plug 'honza/vim-snippets'
             " Source support_function.vim to support vim-snippets.
