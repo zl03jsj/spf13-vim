@@ -43,7 +43,7 @@ if g:colors_name == 'catppuccin'
 endif
 " hi Pmenu term=reverse ctermfg=17 ctermbg=168
 " hi PmenuSel term=reverse ctermfg=17 ctermbg=173
-" hi CursorLine ctermbg=236 guibg=#2c323c
+hi CursorLine ctermbg=236 guibg=#000000
 hi default link CocFloating NormalFloat
 hi CursorColumn guibg=#124b7f term=reverse ctermbg=24
 

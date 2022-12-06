@@ -10,6 +10,12 @@
             ]
         }
     },
+    "java.configuration.runtimes": [
+      {
+        "name": "JavaSE-1.7",
+        "path": "/usr/local/opt/jdk-17.0.5.jdk/Contents/Home",
+      },
+    ],
     "go.goplsOptions": {
         "staticcheck": true
     },
