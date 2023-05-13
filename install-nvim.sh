@@ -15,7 +15,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # 安装常用工具
-brew install ctags node ack ag pkg-config autojump bat # bat 用于vim中 fzf preview window的语法高亮
+brew install ctags node ack ag pkg-config autojump bat jq # bat 用于vim中 fzf preview window的语法高亮
 npm install --global yarn
 #
 # 用于vim中，fzf 查找全局symbol时需要的命令， 否则会报错。
@@ -50,7 +50,7 @@ mkdir ~/.config/nvim && \
 # GoInstallBinaries
 # 安装coc extension
 #
-# CocInstall coc-marketplace coc-tsserver coc-rust-analyzer coc-json coc-tsserver coc-fzf-preview coc-python
+# CocInstall coc-marketplace coc-tsserver coc-rust-analyzer coc-json coc-tsserver coc-fzf-preview coc-python coc-java coc-java-
 
 # 设置git ssh代理：~/.ssh/config
 # Host github.com *.github.com

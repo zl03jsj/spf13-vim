@@ -72,11 +72,13 @@
             Plug 'mileszs/ack.vim'
         endif
         Plug 'rakr/vim-one'
+        Plug 'joshdick/onedark.vim'
         Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
         Plug 'junegunn/fzf.vim' " needed for previews
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
         Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+        Plug 'guns/xterm-color-table.vim'
     " }
 
     " In your .vimrc.before.local file

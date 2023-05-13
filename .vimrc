@@ -172,20 +172,26 @@
 " }
 
 " Vim UI {
-    if isdirectory(expand("~/.local/share/nvim/plugged/catppuccin"))
-        let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
-lua << EOF
-require("catppuccin").setup()
-EOF
-        color catppuccin
+    if 0
     elseif !exists('g:override_spf13_bundles') && filereadable(expand("~/.local/share/nvim/plugged/vim-colors-solarized/colors/solarized.vim"))
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
+        let g:solarized_menu=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
         color solarized             " Load a colorscheme
     elseif !exists('g:override_spf13_bundles') && isdirectory(expand("~/.local/share/nvim/plugged/vim-one"))
         color one
+    elseif isdirectory(expand("~/.local/share/nvim/plugged/catppuccin"))
+        let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+" lua << EOF
+" require("catppuccin").setup()
+" EOF
+        " color catppuccin-latte
+        " let g:lightline = {'colorscheme': 'catppuccin-mocha'}
+        set background=dark
+        color catppuccin
+    elseif 0
     endif
 
     set tabpagemax=15               " Only show 15 tabs

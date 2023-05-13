@@ -1,3 +1,6 @@
+ideavim 连续移动:
+" defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
+
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -103,13 +106,19 @@ let mapleader = ","
 " Ctrl + F12 in idea.
 " map <Leader>s Action(FileStructurePopup)
 map s <Action>(SelectIn)
+
 " Perhaps a bit useless compared to search anything.
-"map s <Action>(GotoSymbol)
-map <Leader>s <Action>(FileStructurePopup)
-map <Leader>S <Action>(StructuralSearchActions)
+" nnoremap <leader>s :action GotoRelated<CR>
+map <leader><leader>s <Action>(GotoSymbol)<Cr>
+map <leader><leader>f <Action>(GotoFile)<Cr>
+map <Leader><Leader>o <Action>(FileStructurePopup)
+
+" map <leader>nj <Action>(NewClass)<Cr>
+
 " Perhaps just use the Idea shortcut Ctrl-Alt-B
 " Alt + N, then m (through the menu bar) also seems to work, but it is
 " non-unique.
+map <leader>njc <Action>(NewClass)
 map <Leader>d <Action>(GotoDeclaration)
 map <Leader>i <Action>(GotoImplementation)
 " map <Leader>m <Action>(GotoImplementation)
@@ -121,15 +130,15 @@ map <Leader>e <Action>(ShowErrorDescription)
 " Find usages in file is Ctrl + F7. 
 " Alt + E, then F, then U (through the menu bar) also seems to work fine.
 map <Leader>f <Action>(FindUsages)
-map <Leader>F <Action>(HighlightUsagesInFile)
+map <Leader>l <Action>(HighlightUsagesInFile)
 " Alt + Insert in idea.
 map <Leader>g <Action>(Generate)
 " F12 
 map <Leader>w <Action>(HideAllWindows)
 map <Leader>W <Action>(JumpToLastWindow)
 " Possibly redundant given "Run Anything" DoubleCtrl
-map <Leader>r <Action>(ChooseRunConfiguration)
-map <Leader>R <Action>(Refactorings.QuickListPopupAction)
+map <Leader>r <Action>(ChooseRunConfiguration)<Cr><Cr>
+map <Leader>R <Action>(Refactorings.QuickListPopupAction)<Cr>
 map <Leader>a <Action>(AnalyzeActionsPopup)
 map <Leader>rn <Action>(RenameElement)
 map <leader>nt <Action>(SelectInProjectView)
@@ -139,7 +148,6 @@ map <leader>nt <Action>(SelectInProjectView)
 " map <Leader><Space> <Action>(GotoPreviousError)
 "map <BS> <Action>(GotoPreviousError)
 map <BS> <Action>(GotoRelated)
-
 
 " The default C-o and C-i behaviours have certain inconsistencies with
 " Vim which I can't quite pinpoint.

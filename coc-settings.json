@@ -1,24 +1,12 @@
 {
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": [
-                "go.mod"
-            ],
-            "filetypes": [
-                "go"
-            ]
-        }
-    },
-    "java.configuration.runtimes": [
-      {
-        "name": "JavaSE-1.7",
-        "path": "/usr/local/opt/jdk-17.0.5.jdk/Contents/Home",
-      },
-    ],
+    "java.home": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
+    "java.trace.server": "verbose",
+    "java.configuration.maven.userSettings":"/Users/zl/.m2/settings.xml",
+    "java.saveActions.organizeImports":true,
     "go.goplsOptions": {
-        "staticcheck": true
+        "staticcheck": true,
     },
+    "go.goplsUseDaemon": false,
     "python.analysis.diagnosticSeverityOverrides": {
         "reportGeneralTypeIssues": "none",
         "reportUnusedImport": "warning",
@@ -26,20 +14,24 @@
         "reportUnusedFunction": "warning",
         "reportUnusedVariable": "warning"
     },
-    "python.pythonPath": "/usr/local/opt/python/bin/python3",
+    "python.pythonPath": "/opt/homebrew/bin/python3",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
         "--ignore=E501,W601"
     ],
-    "colors.filetypes": ["*"],
+    "links.enable":true,
+    "colors.enable":true,
     "coc.preferences.jumpCommand": "drop",
     "diagnostic.checkCurrentLine": true,
-    "tsserver.npm": "/usr/local/bin/npm",
-
-    "rust-analyzer.rustfmt.enableRangeFormatting": true,
+    "tsserver.npm": "/opt/homebrew/bin/npm",
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
     "rust-analyzer.updates.checkOnStartup": false,
     "rust-analyzer.updates.channel": "stable",
-    "marketplace.npmsio":true
+    "marketplace.npmsio": true,
+    "suggest.pumFloatConfig": {
+        "-winblend": 15,
+        "-highlight": "#FFF8DC"
+    }
 }
