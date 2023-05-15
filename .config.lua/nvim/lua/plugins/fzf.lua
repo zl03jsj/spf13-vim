@@ -42,11 +42,12 @@ M.config = function()
 
         com! CHistory call CHistory()
     ]])
-    vim.api.nvim_set_keymap('n', '<c-a>', ':RG<cr>',       { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<c-p>', ':Files<cr>',    { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<c-l>', ':BLines<cr>',   { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<c-g>', ':GFiles?<cr>',  { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<c-h>', ':CHistory<cr>', { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap('n', '<c-a>', ':RG<cr>',       { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader><leader>f', ':Files<cr>',    { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader><leader>b', ':Buffers<cr>',  { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader><leader>l', ':BLines<cr>',   { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader><leader>g', ':GFiles?<cr>',  { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader><leader>h', ':CHistory<cr>', { silent = true, noremap = true })
 end
 
 return M
