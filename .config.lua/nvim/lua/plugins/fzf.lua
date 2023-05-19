@@ -1,4 +1,4 @@
-M = {
+local M = {
     'junegunn/fzf.vim',
     branch = "master",
     dependencies = {

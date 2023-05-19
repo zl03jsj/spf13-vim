@@ -29,10 +29,10 @@ M = {
         }
     },
     keys = {
-        { "<leader>e",  "<cmd>Neotree toggle<cr>",  desc = "NeoTree" },
+        { "<leader>ne", "<cmd>Neotree toggle<cr>",  desc = "NeoTree" },
         { "<leader>nt", "<cmd>Neotree reveal<cr>",  desc = "navigate to current open file" },
-        { "<leader>b",  "<cmd>Neotree buffers<cr>", desc = "list current opened file buffers" },
-        { "<leader>g",  "<cmd>Neotree git_status<cr>", desc = "show git status" },
+        { "<leader>nb", "<cmd>Neotree buffers<cr>", desc = "list current opened file buffers" },
+        { "<leader>ng", "<cmd>Neotree git_status<cr>", desc = "show git status" },
     },
     config = function()
         -- Unless you are still migrating, remove the deprecated commands from v1.x

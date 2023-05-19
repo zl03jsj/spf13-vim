@@ -11,6 +11,8 @@ set relativenumber number
 " https://stackoverflow.com/questions/63386803/how-to-turn-off-a-bell-in-intellij-idea
 set visualbell
 
+set ignorecase
+
 " https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
 
 set surround
