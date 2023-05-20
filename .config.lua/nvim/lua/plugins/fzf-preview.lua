@@ -8,7 +8,7 @@
 -- :FzfPreviewDirectoryFilesRpc {path or none}
 -- :FzfPreviewDirectoryFiles {path or none}
 -- :CocCommand fzf-preview.DirectoryFiles
--- 
+--
 
 local M = {
     'yuki-yano/fzf-preview.vim',
@@ -18,9 +18,14 @@ local M = {
         branch = "master",
         build = "./install --all"
     },
+    lazy = false,
     keys = {
-    --     { "<leader>ts", "<cmd>Telescope coc workspace_symbols<cr>" },
-    --     { "<leader>tr", "<cmd>Telescope coc references<cr>" },
+        { "<leader>fr", "<cmd>CocCommand fzf-preview.CocReferences<cr>" },
+        { "<leader>fe", "<cmd>CocCommand fzf-preview.CocDiagnostics<cr>" },
+        { "<leader>fce", "<cmd>CocCommand fzf-preview.CocCurrentDiagnostics<cr>" },
+        { "<leader>fd",  "<cmd>CocCommand fzf-preview.CocTypeDefinition<cr>" },
+        { "<leader>fi",  "<cmd>CocCommand fzf-preview.CocImplementations<cr>" },
+        { "<leader>fo",  "<cmd>CocCommand fzf-preview.CocOutline<cr>" },
     }
 }
 

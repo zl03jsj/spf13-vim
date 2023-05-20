@@ -10,11 +10,13 @@
   "neo-tree.nvim": { "branch": "v2.x", "commit": "e5594d53986b34e584e8afe2ea6ad99d6f6d2105" },
   "neoconf.nvim": { "branch": "main", "commit": "bbf98ce53481e6e8d6507de5a6f18d3264fb0df7" },
   "neodev.nvim": { "branch": "main", "commit": "0c5d6c2ac2fadebedf08282d9403ef6c3dc31896" },
+  "nerdcommenter": { "branch": "master", "commit": "eddd535bdf8472db469b48ac8cf826871b340c4b" },
   "nui.nvim": { "branch": "main", "commit": "698e75814cd7c56b0dd8af4936bcef2d13807f3c" },
-  "nvim-comment": { "branch": "main", "commit": "e9ac16ab056695cad6461173693069ec070d2b23" },
+  "nvim-treesitter": { "branch": "master", "commit": "dad1b7cd6606ffaa5c283ba73d707b4741a5f445" },
   "nvim-web-devicons": { "branch": "master", "commit": "986875b7364095d6535e28bd4aac3a9357e91bbe" },
   "nvim-window-picker": { "branch": "main", "commit": "5902827d0e338890a22849e2f18dc80d1cc1a8db" },
   "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
+  "telescope-coc.nvim": { "branch": "master", "commit": "a1aaabdb3b546f63d24f1fd156dfb1ddc0bc03de" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" },
   "which-key.nvim": { "branch": "main", "commit": "5a6c954a5a46023c19acc03a8b6d7c3e57964fc5" }
 }

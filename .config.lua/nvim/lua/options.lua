@@ -25,3 +25,17 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
 
 vim.api.nvim_command('filetype plugin indent on')
+
+-- Folding
+vim.opt.foldmethod = "syntax"
+vim.opt.foldenable = true
+vim.opt.foldnestmax = 2
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 1
+vim.opt.foldlevelstart = 99
+vim.opt.wrap = true
+vim.opt.autoread = true
+vim.opt.visualbell = false
+vim.opt.errorbells = false
+vim.opt.belloff = "all"
+vim.api.nvim_command('filetype plugin indent on')
