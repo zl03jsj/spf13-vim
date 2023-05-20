@@ -1,3 +1,5 @@
+-- https://github.com/nvim-telescope/telescope.nvim
+
 local M = {
     'fannheyward/telescope-coc.nvim',
     dependencies = {

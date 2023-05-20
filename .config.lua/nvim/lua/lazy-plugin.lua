@@ -35,7 +35,7 @@ require("lazy").setup({
         "folke/neoconf.nvim",
         cmd = "Neoconf"
     },
-    "folke/neodev.nvim",
+    -- "folke/neodev.nvim",
     -- auto load files in ./lua/plugins/*.lua , each returns an plugin to loaded by lazy.
     { import = "plugins" }
 })

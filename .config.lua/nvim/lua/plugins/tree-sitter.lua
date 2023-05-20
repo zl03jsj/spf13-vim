@@ -85,7 +85,8 @@ function M.setup()
         ensure_installed = { 'typescript', 'shell', 'rust', 'c++', 'javascript', 'vue', 'go', 'c', 'vim', 'lua',
             'markdown' },
         highlight = {
-            enable = true
+            enable = true,
+            additional_vim_regex_highlighting = true
         },
     })
     M.parser_bootstrap()

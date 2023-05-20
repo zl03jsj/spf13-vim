@@ -27,15 +27,19 @@ vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is enter
 vim.api.nvim_command('filetype plugin indent on')
 
 -- Folding
-vim.opt.foldmethod = "syntax"
-vim.opt.foldenable = true
-vim.opt.foldnestmax = 2
-vim.opt.foldcolumn = "1"
-vim.opt.foldlevel = 1
-vim.opt.foldlevelstart = 99
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.wo.foldlevel = 99
+-- vim.opt.foldmethod = "syntax"
+-- vim.opt.foldenable = true
+-- vim.opt.foldnestmax = 2
+-- vim.opt.foldcolumn = "1"
+-- vim.opt.foldlevel = 1
+-- vim.opt.foldlevelstart = 99
 vim.opt.wrap = true
 vim.opt.autoread = true
 vim.opt.visualbell = false
 vim.opt.errorbells = false
 vim.opt.belloff = "all"
 vim.api.nvim_command('filetype plugin indent on')
+
