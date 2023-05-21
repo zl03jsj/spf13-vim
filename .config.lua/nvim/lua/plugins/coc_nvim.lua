@@ -73,10 +73,10 @@ M.config = function()
 
     -- GoTo code navigation
     keyset("n", "<leader>d", "<Plug>(coc-definition)", { silent = true })
-    keyset("n", "<leader>y", "<Plug>(coc-type-definition)", { silent = true })
+    -- keyset("n", "<leader>y", "<Plug>(coc-type-definition)", { silent = true })
     keyset("n", "<leader>i", "<Plug>(coc-implementation)", { silent = true })
-    keyset("n", "<leader>rr", "<Plug>(coc-references)", { silent = true })
-    keyset("n", "<leader>rn", "<Plug>(coc-rename)")
+    -- keyset("n", "<leader>r", "<Plug>(coc-references)", { silent = true })
+    keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
 
     -- Use K to show documentation in preview window
     function _G.show_docs()
@@ -103,7 +103,7 @@ M.config = function()
 
 
     -- Symbol renaming
-    keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
+    -- keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
 
 
     -- Formatting selected code
@@ -144,8 +144,8 @@ M.config = function()
 
     -- Remap keys for apply refactor code actions.
     keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
-    keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
-    keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+    -- keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+    -- keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 
     -- Run the Code Lens actions on the current line
     keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
@@ -198,22 +198,21 @@ M.config = function()
     ---@diagnostic disable-next-line: redefined-local
     local opts = { silent = true, nowait = true }
     -- Show all diagnostics
-    keyset("n", "<leader>a", ":<C-u>CocList diagnostics<cr>", opts)
+    -- keyset("n", "<leader>a", ":<C-u>CocList diagnostics<cr>", opts)
     -- Manage extensions
-    keyset("n", "<leader>e", ":<C-u>CocList extensions<cr>", opts)
+    -- keyset("n", "<leader>e", ":<C-u>CocList extensions<cr>", opts)
     -- Show commands
-    keyset("n", "<leader>c", ":<C-u>CocList commands<cr>", opts)
+    -- keyset("n", "<leader>c", ":<C-u>CocList commands<cr>", opts)
     -- Find symbol of current document
-    keyset("n", "<leader>o", ":<C-u>CocList outline<cr>", opts)
+    -- keyset("n", "<leader>o", ":<C-u>CocList outline<cr>", opts)
     -- Search workspace symbols
     -- keyset("n", "<leader>s", ":<C-u>CocList -I symbols<cr>", opts)
     -- Do default action for next item
-    keyset("n", "<leader>j", ":<C-u>CocNext<cr>", opts)
+    -- keyset("n", "<leader>j", ":<C-u>CocNext<cr>", opts)
     -- Do default action for previous item
-    keyset("n", "<leader>k", ":<C-u>CocPrev<cr>", opts)
+    -- keyset("n", "<leader>k", ":<C-u>CocPrev<cr>", opts)
     -- Resume latest coc list
-    keyset("n", "<leader>p", ":<C-u>CocListResume<cr>", opts)
+    --keyset("n", "<leader>p", ":<C-u>CocListResume<cr>", opts)
 end
 
 return M
-

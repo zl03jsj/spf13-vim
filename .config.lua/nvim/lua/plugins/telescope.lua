@@ -9,7 +9,7 @@ local M = {
         if [ ! "$(command -v rg)" ]; then
             brew install rg
         fi
-    ]]
+    ]],
 }
 
 return M

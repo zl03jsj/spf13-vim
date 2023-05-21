@@ -1,4 +1,3 @@
 require('options')
 require('keymaps')
-
-require('lazy-plugin')
+require('plugin_lazy')

@@ -39,15 +39,14 @@ M.config = function()
           call filter(v:oldfiles, "v:val =~ '^' . $PWD . '.*$'")
           call fzf#vim#history(fzf#vim#with_preview(), 0)
         endf
-
         com! CHistory call CHistory()
     ]])
-    -- vim.api.nvim_set_keymap('n', '<c-a>', ':RG<cr>',       { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader><leader>f', ':Files<cr>',    { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader><leader>b', ':Buffers<cr>',  { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader><leader>l', ':BLines<cr>',   { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader><leader>g', ':GFiles?<cr>',  { silent = true, noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader><leader>h', ':CHistory<cr>', { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>sa', ':RG<cr>',       { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>sf', ':Files<cr>',    { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>sb', ':Buffers<cr>',  { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap('n', '<leader>sbl', ':BLines<cr>',   { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap('n', '<leader>gs', ':GFiles?<cr>',  { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap('n', '<leader><leader>h', ':CHistory<cr>', { silent = true, noremap = true })
 end
 
 return M
