@@ -20,9 +20,9 @@ local M = {
     },
     lazy = false,
     keys = {
-        { "<leader>r", "<cmd>CocCommand fzf-preview.CocReferences<cr>" },
+        -- { "<leader>r", "<cmd>CocCommand fzf-preview.CocReferences<cr>" },
         -- { "<leader>i",  "<cmd>CocCommand fzf-preview.CocImplementations<cr>" },
-        { "<leader>o",  "<cmd>CocCommand fzf-preview.CocOutline<cr>" },
+        -- { "<leader>o",  "<cmd>CocCommand fzf-preview.CocOutline<cr>" },
         { "<leader><leader>d", "<cmd>CocCommand fzf-preview.CocDiagnostics<cr>" },
         { "<leader>g", "<cmd>CocCommand fzf-preview.GitLogs<cr>" },
     }

@@ -29,10 +29,11 @@ M = {
         }
     },
     keys = {
-        { "<leader>ne", "<cmd>Neotree toggle<cr>",  desc = "NeoTree" },
-        { "<leader>nt", "<cmd>Neotree reveal<cr>",  desc = "navigate to current open file" },
-        { "<leader>nb", "<cmd>Neotree buffers<cr>", desc = "list current opened file buffers" },
-        { "<leader>ng", "<cmd>Neotree git_status<cr>", desc = "show git status" },
+        -- Neotree source=filesystem reveal=true position=right
+        { "<leader>ne", "<cmd>Neotree toggle position=left<cr>",  desc = "NeoTree" },
+        { "<leader>nt", "<cmd>Neotree reveal position=left source=filesystem<cr>",  desc = "navigate to current open file" },
+        { "<leader>nb", "<cmd>Neotree buffers position=current<cr>", desc = "list current opened file buffers" },
+        { "<leader>ng", "<cmd>Neotree git_status position=bottom<cr>", desc = "show git status" },
     },
     config = function()
         -- Unless you are still migrating, remove the deprecated commands from v1.x
@@ -122,7 +123,8 @@ M = {
             -- see `:h neo-tree-global-custom-commands`
             commands = {},
             window = {
-                position = "float",
+                -- position = "float",
+                width = 30,
                 mapping_options = {
                     noremap = true,
                     nowait = true,
@@ -134,7 +136,7 @@ M = {
                     },
                     ["<2-LeftMouse>"] = "open",
                     ["<cr>"] = "open",
-                    ["<esc>"] = "revert_preview",
+                    -- ["<esc>"] = "revert_preview",
                     ["P"] = { "toggle_preview", config = { use_float = true } },
                     ["l"] = "focus_preview",
                     ["S"] = "open_split",
@@ -173,7 +175,7 @@ M = {
                     --}
                     ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
                     ["q"] = "close_window",
-                    ["<esc>"] = "close_window",
+                    -- ["<esc>"] = "close_window",
                     ["R"] = "refresh",
                     ["?"] = "show_help",
                     ["<"] = "prev_source",

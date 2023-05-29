@@ -19,6 +19,50 @@
     "snippets.ultisnips.directories": ["~/.config/nvim/snippets/ultisnips"],
     "snippets.extends.javascript": ["typescript"],
     "tabnine.priority": 80,
+
+    "java.jdt.ls.java.home": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/"",
+    "__java.configuration.runtimes": [
+        {
+            "name": "JavaSE-14",
+            "path": "/opt/jdk-14.0.2",
+            "default": true
+        }
+    ],
+    "java.trace.server": "verbose",
+    "java.configuration.maven.userSettings":"/Users/zl/.m2/settings.xml",
+    "java.saveActions.organizeImports":true,
+    "go.goplsOptions": {
+        "staticcheck": true,
+    },
+    "go.goplsUseDaemon": false,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportGeneralTypeIssues": "none",
+        "reportUnusedImport": "warning",
+        "reportUnusedClass": "warning",
+        "reportUnusedFunction": "warning",
+        "reportUnusedVariable": "warning"
+    },
+    "python.pythonPath": "/opt/homebrew/bin/python3",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E501,W601"
+    ],
+    "links.enable":true,
+    "colors.enable":true,
+    "coc.preferences.jumpCommand": "drop",
+    "diagnostic.checkCurrentLine": true,
+    "tsserver.npm": "/opt/homebrew/bin/npm",
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+    "rust-analyzer.updates.checkOnStartup": false,
+    "rust-analyzer.updates.channel": "stable",
+    "marketplace.npmsio": true,
+    "suggest.pumFloatConfig": {
+        "-winblend": 15,
+        "-highlight": "#FFF8DC"
+    }
+
     "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
         "pairs.enableBackspace": true,
         "translator.engines": ["youdao", "google"],
@@ -44,13 +88,6 @@
         "git.addGBlameToBufferVar": true,
         "git.splitWindowCommand": "below 10sp",
         "java.clean.workspace": true,
-        "java.configuration.runtimes": [
-            {
-                "name": "JavaSE-14",
-                "path": "/opt/jdk-14.0.2",
-                "default": true
-            }
-        ],
         "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
         "prettier": {
             "tabWidth": 4,

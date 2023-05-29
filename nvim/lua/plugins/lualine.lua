@@ -5,7 +5,7 @@ local M = {
         require('lualine').setup({
             options = {
                 icons_enabled = true,
-                theme = '16color',
+                theme = 'onedark',
             }
         })
     end

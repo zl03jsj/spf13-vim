@@ -10,6 +10,7 @@ local M = {
     end,
     keys = {
         { "<leader>ss", "<cmd>CocFzfList symbols<cr>" },
+        { "<leader>o", "<cmd>CocFzfList outline<cr>" },
     },
 }
 

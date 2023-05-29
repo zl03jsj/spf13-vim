@@ -1,3 +1,21 @@
+# install by lua configuration
+SHELL_PATH="$(cd $(dirname "$0"); pwd)"
+
+NVIM_CONFIG_PATH=~/.config/nvim
+
+ln -s -f $SHELL_PATH/nvim $NVIM_CONFIG_PATH
+
+if [ ! -d "${NVIM_CONFIG_PATH}" ]; then
+  mkdir -p ${NVIM_CONFIG_PATH}
+# else
+#   echo path: $NVIM_CONFIG_PATH already exists.
+fi
+
+ln -s -f $SHELL_PATH/init.lua ${NVIM_CONFIG_PATH}/init.lua
+
+exit 0
+
+# install by vimscript configuration.
 #https://srayx.pro/#/login
 #
 curl https://iterm2.com/downloads/stable/iTerm2-3_4_17.zip

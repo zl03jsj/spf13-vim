@@ -101,9 +101,8 @@ M.config = function()
         desc = "Highlight symbol under cursor on CursorHold"
     })
 
-
     -- Symbol renaming
-    -- keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
+    keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
 
 
     -- Formatting selected code
@@ -130,25 +129,23 @@ M.config = function()
     -- Apply codeAction to the selected region
     -- Example: `<leader>aap` for current paragraph
     local opts = { silent = true, nowait = true }
-    keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)<cr>", opts)
-    keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)<cr>", opts)
-
     -- Remap keys for apply code actions at the cursor position.
-    -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+    keyset("n", "<leader>a", "<Plug>(coc-codeaction)", opts)
     -- Remap keys for apply code actions affect whole buffer.
-    -- keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
+    keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
     -- Remap keys for applying codeActions to the current buffer
-    -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction)", opts)
+    -- keyset("n", "<leader>a", "<Plug>(coc-codeaction)", opts)
+    -- keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)<cr>", opts)
+    -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
     -- Apply the most preferred quickfix action on the current line.
     keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
-
     -- Remap keys for apply refactor code actions.
     keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
     -- keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
     -- keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
-
     -- Run the Code Lens actions on the current line
     keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
+    -- keyset("x", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
 
     -- Map function and class text objects
     -- NOTE: Requires 'textDocument.documentSymbol' support from the language server

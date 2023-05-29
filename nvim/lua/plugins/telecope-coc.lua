@@ -9,7 +9,7 @@ local M = {
     },
     keys = {
         { "<leader>ts", "<cmd>Telescope coc workspace_symbols<cr>" },
-        { "<leader>tr", "<cmd>Telescope coc references<cr>" },
+        { "<leader>r", "<cmd>Telescope coc references<cr>" },
         { "<leader>tc", "<cmd>Telescope coc commands<cr>" },
         { "<leader>ti", "<cmd>Telescope coc implementations<cr>" },
         -- { "<leader>tf", "<cmd>Telescope live_grep<cr>" },

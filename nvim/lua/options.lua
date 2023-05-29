@@ -1,5 +1,8 @@
 --
+vim.opt.termguicolors = true
 vim.api.nvim_command('filetype plugin indent on')
+vim.api.nvim_command('set cursorline')
+-- vim.api.nvim_command('set cursorcolumn')
 vim.opt.showcmd = true
 vim.opt.encoding = 'utf-8'
 vim.opt.wildmenu = true
@@ -76,12 +79,17 @@ vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is enter
 vim.api.nvim_command('filetype plugin indent on')
 
 -- Folding
+vim.opt.foldenable = true
 vim.opt.foldmethod = "syntax"
 vim.opt.foldnestmax = 2
-vim.opt.foldenable = true
 vim.opt.foldcolumn = '1'
+vim.wo.foldlevel = 1
 vim.opt.foldlevelstart = 99
-vim.wo.foldlevel = 0
+
+-- Transparency
+-- set transparency for coc pop menus.
+-- vim.opt.pumblend = 15
+-- " autocmd user CocOpenFloat call setwinvar(g:coc_last_float_win, "&winblend", 15)
 
 -- PersistentUndo
 vim.api.nvim_command([[
@@ -113,5 +121,11 @@ endfunction
 call InitializeDirectories()
 ]])
 
-
 -- vim.g.python3_host_prog = os.getenv('PYTHON') -- export PYTHON=$(which python3)
+-- vim.cmd("hi! link CocPum Pmenu")
+-- vim.cmd("hi! link CocMenuSel PmenuSel")
+-- hi Pmenu term=reverse ctermfg=17 ctermbg=168
+-- hi PmenuSel term=reverse ctermfg=17 ctermbg=173
+-- hi CursorLine ctermbg=236 guibg=#121212
+-- hi default link CocFloating NormalFloat
+-- hi CursorColumn guibg=#124b7f term=reverse ctermbg=24
