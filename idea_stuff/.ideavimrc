@@ -114,6 +114,12 @@ map s <Action>(SelectIn)
 map <leader><leader>s <Action>(GotoSymbol)<Cr>
 map <leader><leader>f <Action>(GotoFile)<Cr>
 map <Leader><Leader>o <Action>(FileStructurePopup)
+" Alt + F7 in idea.
+" Find usages in file is Ctrl + F7.
+" Alt + E, then F, then U (through the menu bar) also seems to work fine.
+map <Leader>fu <Action>(FindUsages)
+map <leader>fp <action>(FindInPath)
+map <leader>rp <action>(ReplaceInPath)
 
 " map <leader>nj <Action>(NewClass)<Cr>
 
@@ -128,10 +134,6 @@ map <Leader>i <Action>(GotoImplementation)
 " Jump to next/previous error, show error description
 " https://stackoverflow.com/questions/13346245/keyboard-shortcut-to-display-error-in-intellij
 map <Leader>e <Action>(ShowErrorDescription)
-" Alt + F7 in idea. 
-" Find usages in file is Ctrl + F7. 
-" Alt + E, then F, then U (through the menu bar) also seems to work fine.
-map <Leader>f <Action>(FindUsages)
 map <Leader>l <Action>(HighlightUsagesInFile)
 " Alt + Insert in idea.
 map <Leader>g <Action>(Generate)
