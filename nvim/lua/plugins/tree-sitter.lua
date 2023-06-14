@@ -1,5 +1,4 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
-
 local G = require('G')
 local M = {
     "nvim-treesitter/nvim-treesitter",
@@ -62,8 +61,9 @@ function M.config()
         ["@text.todo.checked"] = { fg = 37 },
     })
     G.map({
-        { 'n', 'H', ':TSHighlightCapturesUnderCursor<CR>',       { silent = true, noremap = true } },
-        { 'n', 'R', ':write | edit | TSBufEnable highlight<CR>', { silent = true, noremap = true } },
+        { 'n', 'H', ':TSToggle highlight<CR>', { silent = true, noremap = true } },
+        -- { 'n', 'H', ':TSHighlightCapturesUnderCursor<CR>',       { silent = true, noremap = true } },
+        -- { 'n', 'R', ':write | edit | TSBufEnable highlight<CR>', { silent = true, noremap = true } },
     })
 
     -- some custom highlights
@@ -82,8 +82,8 @@ end
 function M.setup()
     require('nvim-treesitter.configs').setup({
         -- 列举常用语言自动安装parser
-        ensure_installed = { 'typescript', 'shell', 'rust', 'c++', 'javascript', 'vue', 'go', 'c', 'vim', 'lua',
-            'markdown' },
+        ensure_installed = { 'typescript', 'bash', 'rust', 'cpp', 'javascript', 'vue', 'go', 'c', 'vim', 'lua',
+            'markdown', 'json' },
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = true

@@ -25,7 +25,10 @@ local M = {
         -- { "<leader>o",  "<cmd>CocCommand fzf-preview.CocOutline<cr>" },
         { "<leader><leader>d", "<cmd>CocCommand fzf-preview.CocDiagnostics<cr>" },
         { "<leader>g", "<cmd>CocCommand fzf-preview.GitLogs<cr>" },
-    }
+    },
+    config = function ()
+        -- vim.g.fzf_preview_fzf_preview_window_option = 'right:60%'
+    end
 }
 
 return M

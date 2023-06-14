@@ -80,7 +80,9 @@ vim.api.nvim_command('filetype plugin indent on')
 
 -- Folding
 vim.opt.foldenable = true
-vim.opt.foldmethod = "syntax"
+-- vim.opt.foldmethod = "syntax"
+vim.opt.foldmethod="expr"
+vim.opt.foldexpr="nvim_treesitter#foldexpr()"
 vim.opt.foldnestmax = 2
 vim.opt.foldcolumn = '1'
 vim.wo.foldlevel = 1
