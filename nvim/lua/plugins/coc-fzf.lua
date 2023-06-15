@@ -7,6 +7,7 @@ local M = {
         { 'junegunn/fzf.vim', branch = 'master'},
     },
     config = function ()
+        vim.fn['coc_fzf#common#add_list_source']('fzf-buffers','display fzf buffers','Buffers')
     end,
     keys = {
         { "<leader>ss", "<cmd>CocFzfList symbols<cr>" },

@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     change_detection = { notify = false, },
-    { "gruvbox-community/gruvbox" },
     {
         "folke/which-key.nvim",
         config = function()
@@ -24,11 +23,10 @@ require("lazy").setup({
             require("which-key").setup({})
         end,
     },
-    {
-        "folke/neoconf.nvim",
-        cmd = "Neoconf"
-    },
-    'folke/tokyonight.nvim',
+    -- {
+    --     "folke/neoconf.nvim",
+    --     cmd = "Neoconf"
+    -- },
     -- "folke/neodev.nvim",
     -- auto load files in ./lua/plugins/*.lua , each returns an plugin to loaded by lazy.
     { import = "plugins" },

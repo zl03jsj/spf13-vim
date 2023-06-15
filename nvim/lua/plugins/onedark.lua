@@ -29,7 +29,6 @@ return {
             lualine = {
                 transparent = false, -- lualine center bar transparency
             },
-
             -- Custom Highlights --
             -- colors = {
             --     bright_orange = "#ff8800",    -- define a new color

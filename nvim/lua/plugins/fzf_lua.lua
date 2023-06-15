@@ -2,7 +2,7 @@ local M = {
     'ibhagwan/fzf-lua',
     dependencies = {
         { 'nvim-tree/nvim-web-devicons' },
-        { 'junegunn/fzf',               branch = "master", build = "./install --all" }
+        { 'junegunn/fzf', branch = "master", build = "./install --all" }
     }
 }
 
@@ -19,11 +19,6 @@ M.config = function()
         },
     }
     opts = { silent = false }
-    -- vim.keymap.set("n", "<leader>sf", ":FzfLua files<cr>", opts)
-    -- vim.keymap.set("n", "<leader>sb", ":FzfLua buffers<cr>", opts)
-    -- vim.keymap.set("n", "<leader>sa", ":FzfLua live_grep<cr>", opts)
-    -- vim.keymap.set("n", "<leader>sc", ":FzfLua grep_cword<cr>", opts)
-    -- vim.keymap.set("n", "<leader>sp", ":FzfLua grep<cr>", opts)
     vim.keymap.set("n", "<leader>sf", ":lua require('fzf-lua').files()<cr>", opts)
     vim.keymap.set("n", "<leader>sb", ":lua require('fzf-lua').buffers()<cr>", opts)
     vim.keymap.set("n", "<leader>sa", ":lua require('fzf-lua').live_grep()<cr>", opts)
