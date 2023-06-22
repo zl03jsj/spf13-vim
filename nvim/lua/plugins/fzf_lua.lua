@@ -2,7 +2,7 @@ local M = {
     'ibhagwan/fzf-lua',
     dependencies = {
         { 'nvim-tree/nvim-web-devicons' },
-        { 'junegunn/fzf', branch = "master", build = "./install --all" }
+        { 'junegunn/fzf',               branch = "master", build = "./install --all" }
     }
 }
 
@@ -17,13 +17,27 @@ M.config = function()
                 ["<c-u>"] = "preview-page-up",
             },
         },
+        winopts = {
+            height = 0.75,
+            width = 0.75,
+            preview = {
+                vertical   = 'down:45%',
+                horizontal = 'right:75%',
+            },
+        },
     }
-    opts = { silent = false }
-    vim.keymap.set("n", "<leader>sf", ":lua require('fzf-lua').files()<cr>", opts)
-    vim.keymap.set("n", "<leader>sb", ":lua require('fzf-lua').buffers()<cr>", opts)
+    opts = { silent = false, nowait = true, }
+    vim.keymap.set("n", "<leader>sf", ":lua require('fzf-lua').files({winopts={preview={layout='vertical',vertical='up:80%'}}})<cr>", opts)
+    vim.keymap.set("n", "<leader>sb", ":lua require('fzf-lua').buffers({winopts={preview={layout='vertical',vertical='up:80%'}}})<cr>", opts)
     vim.keymap.set("n", "<leader>sa", ":lua require('fzf-lua').live_grep()<cr>", opts)
     vim.keymap.set("n", "<leader>sw", ":lua require('fzf-lua').grep_cword()<cr>", opts)
     vim.keymap.set("n", "<leader>sg", ":lua require('fzf-lua').grep()<cr>", opts)
+    vim.keymap.set("n", "<leader>sc", ":lua require('fzf-lua').colorschemes()<cr>", opts)
+    vim.keymap.set("n", "<leader>gc", ":lua require('fzf-lua').git_commits()<cr>", opts)
+    vim.keymap.set("n", "<leader>gb", ":lua require('fzf-lua').git_branches()<cr>", opts)
+    vim.keymap.set("n", "<leader>gs", ":lua require('fzf-lua').git_status()<cr>", opts)
+    vim.keymap.set("n", "<leader>gst", ":lua require('fzf-lua').git_stash()<cr>", opts)
+    vim.keymap.set("n", "<leader>fl", ":FzfLua builtin<cr>", opts)
 end
 
 return M

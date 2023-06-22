@@ -16,11 +16,20 @@
     "list.floatPreview": true,
     "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
     "snippets.ultisnips.directories": ["~/.config/nvim/snippets/ultisnips"],
-    "snippets.extends.javascript": ["typescript"],
-    "tabnine.priority": 80,
-
-    "java.jdt.ls.java.home": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/"",
-    "__java.configuration.runtimes": [
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".git/"],
+            "filetypes": ["go"]
+        }
+    },
+    "go.goplsOptions": {
+        "completeUnimported": true,
+        "staticcheck": true
+    },
+    "go.goplsUseDaemon": true,
+    "java.jdt.ls.java.home": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
+    "---java.configuration.runtimes": [
         {
             "name": "JavaSE-14",
             "path": "/opt/jdk-14.0.2",
@@ -30,10 +39,6 @@
     "java.trace.server": "verbose",
     "java.configuration.maven.userSettings":"/Users/zl/.m2/settings.xml",
     "java.saveActions.organizeImports":true,
-    "go.goplsOptions": {
-        "staticcheck": true,
-    },
-    "go.goplsUseDaemon": false,
     "python.analysis.diagnosticSeverityOverrides": {
         "reportGeneralTypeIssues": "none",
         "reportUnusedImport": "warning",
@@ -53,53 +58,28 @@
     "coc.preferences.jumpCommand": "drop",
     "diagnostic.checkCurrentLine": true,
     "tsserver.npm": "/opt/homebrew/bin/npm",
-    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
-    "rust-analyzer.updates.checkOnStartup": false,
-    "rust-analyzer.updates.channel": "stable",
     "marketplace.npmsio": true,
-    "suggest.pumFloatConfig": {
-        "-winblend": 15,
-        "-highlight": "#FFF8DC"
-    }
-
-    "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
-        "pairs.enableBackspace": true,
-        "translator.engines": ["youdao", "google"],
-        "tsserver.trace.server": "messages",
-        "tsserver.enableJavascript": true,
-        "tsserver.enable": false,
-        "volar.takeOverMode.enabled": true,
-        "volar.autoCreateQuotes": true,
-        "pyright.inlayHints.enable": false,
-        "git.addedSign.hlGroup": "GitGutterAdd",
-        "git.changedSign.hlGroup": "GitGutterChange",
-        "git.removedSign.hlGroup": "GitGutterDelete",
-        "git.topRemovedSign.hlGroup": "GitGutterDelete",
-        "git.changeRemovedSign.hlGroup": "GitGutterDelete",
-        "git.changedSign.text": "┃",
-        "git.addedSign.text": "┃",
-        "git.removedSign.text": "▁",
-        "git.topRemovedSign.text": "▔",
-        "git.changeRemovedSign.text": "≃",
-        "git.branchCharacter": "",
-        "git.showCommitInFloating": true,
-        "git.addGBlameToVirtualText": false,
-        "git.addGBlameToBufferVar": true,
-        "git.splitWindowCommand": "below 10sp",
-        "java.clean.workspace": true,
-        "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
-        "prettier": {
-            "tabWidth": 4,
-            "printWidth": 160,
-            "singleQuote": true,
-            "disableSuccessMessage": true,
-            "formatterPriority": 999
-        },
-        "go.goplsOptions": {
-            "completeUnimported": true,
-            "staticcheck": true
-        },
-        "git.enableGutters": true,
-        "Lua.telemetry.enable": true,
-        "@nomicfoundation/coc-solidity.telemetry": true
-    }
+    "pairs.enableBackspace": true,
+    "translator.engines": ["youdao", "google"],
+    "tsserver.trace.server": "messages",
+    "tsserver.enable": false,
+    "volar.takeOverMode.enabled": true,
+    "volar.autoCreateQuotes": true,
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changedSign.text": "┃",
+    "git.addedSign.text": "┃",
+    "git.removedSign.text": "▁",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "≃",
+    "git.branchCharacter": "",
+    "git.showCommitInFloating": true,
+    "git.addGBlameToVirtualText": false,
+    "git.addGBlameToBufferVar": true,
+    "git.splitWindowCommand": "below 10sp",
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
+    "git.enableGutters": true,
+}

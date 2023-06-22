@@ -29,7 +29,6 @@ M.config = function()
         'coc-json',
         'coc-html', 'coc-css',
         'coc-clangd',
-        'coc-go',
         'coc-sumneko-lua',
         'coc-vimlsp',
         'coc-sh', 'coc-db',
@@ -177,39 +176,26 @@ M.config = function()
 
 
     -- Add `:Format` command to format current buffer
-    vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
-
-    -- " Add `:Fold` command to fold current buffer
-    vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { nargs = '?' })
-
+    vim.api.nvim_create_user_command("Format", "silent call CocAction('format')", {})
     -- Add `:OR` command for organize imports of the current buffer
-    vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
-
+    vim.api.nvim_create_user_command("OR", "silent call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
+    -- " Add `:Fold` command to fold current buffer
+    vim.api.nvim_create_user_command("Fold", "silent call CocAction('fold', <f-args>)", { nargs = '?' })
     -- Add (Neo)Vim's native statusline support
     -- NOTE: Please see `:h coc-status` for integrations with external plugins that
     -- provide custom statusline: lightline.vim, vim-airline
     vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
-
-    -- Mappings for CoCList
-    -- code actions and coc stuff
-    ---@diagnostic disable-next-line: redefined-local
-    local opts = { silent = true, nowait = true }
-    -- Show all diagnostics
-    -- keyset("n", "<leader>a", ":<C-u>CocList diagnostics<cr>", opts)
-    -- Manage extensions
-    -- keyset("n", "<leader>e", ":<C-u>CocList extensions<cr>", opts)
-    -- Show commands
-    -- keyset("n", "<leader>c", ":<C-u>CocList commands<cr>", opts)
-    -- Find symbol of current document
-    -- keyset("n", "<leader>o", ":<C-u>CocList outline<cr>", opts)
-    -- Search workspace symbols
-    -- keyset("n", "<leader>s", ":<C-u>CocList -I symbols<cr>", opts)
-    -- Do default action for next item
-    -- keyset("n", "<leader>j", ":<C-u>CocNext<cr>", opts)
-    -- Do default action for previous item
-    -- keyset("n", "<leader>k", ":<C-u>CocPrev<cr>", opts)
-    -- Resume latest coc list
-    --keyset("n", "<leader>p", ":<C-u>CocListResume<cr>", opts)
+    --https://github.com/neoclide/coc.nvim/issues/888
+    --https://github.com/neoclide/coc.nvim/issues/4372
+    -- If you add silent in front of the 'call' then the error will not be reported but the imports will be created when needed. so:
+    -- autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+    -- autocmd BufWritePre *.ts,*.js,*.py,*.rb,*.go silent! call CocAction('runCommand', 'editor.action.organizeImport')
+    -- and
+    -- command! -nargs=0 OR   :silent call CocAction('runCommand', 'editor.action.organizeImport')
+    vim.api.nvim_command([[
+        autocmd user CocOpenFloat call setwinvar(g:coc_last_float_win, "&winblend", 15)
+        set pumblend=15
+    ]])
 end
 
 return M

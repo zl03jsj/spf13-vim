@@ -25,12 +25,16 @@ local M = {
         telescope.load_extension('coc')
         local builtin = require('telescope.builtin')
 
+        -- nnoremap <leader>to :lua require('telescope').extensions.coc.document_symbols({winblend=15,layout_config={preview_width=0.6,width=0.75}})<cr>
         vim.api.nvim_command([[
             nnoremap <leader>ts :lua require('telescope').extensions.coc.workspace_symbols({winblend=25,layout_config={preview_width=0.6,width=0.75,height=0.7}})<cr>
-            nnoremap <leader>to :lua require('telescope').extensions.coc.document_symbols({winblend=15,layout_config={preview_width=0.6,width=0.75}})<cr>
+            nnoremap <leader>s :lua require('telescope').extensions.coc.workspace_symbols({winblend=25,layout_config={preview_width=0.6,width=0.75,height=0.7}})<cr>
+            nnoremap <leader>to :lua require('telescope').extensions.coc.document_symbols({winblend=15,layout_strategy='vertical',layout_config={preview_height=0.7,height=0.85,width=0.75}})<cr>
             nnoremap <leader>tr :lua require('telescope').extensions.coc.references({winblend=15,layout_strategy='vertical',layout_config={preview_height=0.6,height=0.6,width=0.75}})<cr>
+            nnoremap <leader>r :lua require('telescope').extensions.coc.references({winblend=10,layout_strategy='vertical',layout_config={preview_height=0.6,height=0.6,width=0.75}})<cr>
             nnoremap <leader>tc :lua require('telescope').extensions.coc.commands({winblend=15,layout_config={width=0.6,width=0.75}})<cr>
             nnoremap <leader>ti :lua require('telescope').extensions.coc.implementations({winblend=15,layout_strategy='vertical',layout_config={preview_height=0.6,height=0.6,width=0.75}})<cr>
+            nnoremap <leader>i :lua require('telescope').extensions.coc.implementations({winblend=15,layout_strategy='vertical',layout_config={preview_height=0.6,height=0.6,width=0.75}})<cr>
             nnoremap <leader>td :lua require('telescope').extensions.coc.workspace_diagnostics({winblend=15,layout_strategy='vertical',layout_config={height=0.75, preview_height=0.7, width=0.75}})<cr>
             nnoremap <leader>th :lua require('telescope.builtin').help_tags({winblend=15,layout_config={preview_width=0.6}})<cr>
             nnoremap <leader>tf :lua require('telescope.builtin').find_files({winblend=20,layout_config={preview_width=0.6, width=0.75}})<cr>
