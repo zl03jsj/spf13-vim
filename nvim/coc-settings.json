@@ -21,18 +21,23 @@
             "command": "gopls",
             "rootPatterns": ["go.mod", ".git/"],
             "filetypes": ["go"]
-        }
+        },
+        "_clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        },
     },
-    "go.goplsOptions": {
-        "completeUnimported": true,
-        "staticcheck": true
-    },
-    "go.goplsUseDaemon": true,
-    "java.jdt.ls.java.home": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
-    "---java.configuration.runtimes": [
+    "clangd.path": "/opt/homebrew/Cellar/llvm/16.0.6/bin/clangd",
+    "java.configuration.runtimes": [
         {
             "name": "JavaSE-14",
-            "path": "/opt/jdk-14.0.2",
+            "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home",
+            "default": true
+        },
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
             "default": true
         }
     ],
@@ -80,6 +85,5 @@
     "git.addGBlameToVirtualText": false,
     "git.addGBlameToBufferVar": true,
     "git.splitWindowCommand": "below 10sp",
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
     "git.enableGutters": true,
 }
