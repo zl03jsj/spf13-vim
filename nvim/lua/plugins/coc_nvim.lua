@@ -176,7 +176,7 @@ M.config = function()
 
 
     -- Add `:Format` command to format current buffer
-    vim.api.nvim_create_user_command("Format", "silent call CocAction('format')", {})
+    vim.api.nvim_create_user_command("Fmt", "silent call CocAction('format')", {})
     -- Add `:OR` command for organize imports of the current buffer
     vim.api.nvim_create_user_command("OR", "silent call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
     -- " Add `:Fold` command to fold current buffer

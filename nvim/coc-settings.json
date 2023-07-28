@@ -1,89 +1,95 @@
 {
-    "hover.floatConfig": { "border": true, "rounded": true, "focusable": true },
-    "suggest.floatConfig": { "border": true, "rounded": true },
-    "diagnostic.floatConfig": { "border": true, "rounded": true },
-    "signature.floatConfig": { "border": true, "rounded": true },
-    "outline.autoPreview": true,
-    "git.floatConfig": { "border": true, "rounded": true },
-    "notification.disabledProgressSources": ["*"],
-    "diagnostic.level": "information",
-    "diagnostic.errorSign": "┃",
-    "diagnostic.warningSign": "┃",
-    "diagnostic.infoSign": "┃",
-    "diagnostic.hintSign": "┃",
-    "inlayHint.enable": false,
-    "list.alignColumns": true,
-    "list.floatPreview": true,
-    "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
-    "snippets.ultisnips.directories": ["~/.config/nvim/snippets/ultisnips"],
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".git/"],
-            "filetypes": ["go"]
+  "hover.floatConfig": { "border": true, "rounded": true, "focusable": true },
+  "suggest.floatConfig": { "border": true, "rounded": true },
+  "diagnostic.floatConfig": { "border": true, "rounded": true },
+  "signature.floatConfig": { "border": true, "rounded": true },
+  "outline.autoPreview": true,
+  "git.floatConfig": { "border": true, "rounded": true },
+  "notification.disabledProgressSources": ["*"],
+  "diagnostic.level": "information",
+  "diagnostic.errorSign": "┃",
+  "diagnostic.warningSign": "┃",
+  "diagnostic.infoSign": "┃",
+  "diagnostic.hintSign": "┃",
+  "inlayHint.enable": false,
+  "list.alignColumns": true,
+  "list.floatPreview": true,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+  "snippets.ultisnips.directories": ["~/.config/nvim/snippets/ultisnips"],
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".git/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "analyses": {
+          "unreachable": true,
+          "unusedparams": true
         },
-        "_clangd": {
-            "command": "clangd",
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-        },
+        "staticcheck": true
+      }
     },
-    "clangd.path": "/opt/homebrew/Cellar/llvm/16.0.6/bin/clangd",
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-14",
-            "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home",
-            "default": true
-        },
-        {
-            "name": "JavaSE-1.8",
-            "path": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
-            "default": true
-        }
-    ],
-    "java.trace.server": "verbose",
-    "java.configuration.maven.userSettings":"/Users/zl/.m2/settings.xml",
-    "java.saveActions.organizeImports":true,
-    "python.analysis.diagnosticSeverityOverrides": {
-        "reportGeneralTypeIssues": "none",
-        "reportUnusedImport": "warning",
-        "reportUnusedClass": "warning",
-        "reportUnusedFunction": "warning",
-        "reportUnusedVariable": "warning"
+    "_clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    }
+  },
+  "clangd.path": "/opt/homebrew/Cellar/llvm/16.0.6/bin/clangd",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-14",
+      "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home",
+      "default": true
     },
-    "python.pythonPath": "/opt/homebrew/bin/python3",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--ignore=E501,W601"
-    ],
-    "links.enable":true,
-    "colors.enable":true,
-    "coc.preferences.jumpCommand": "drop",
-    "diagnostic.checkCurrentLine": true,
-    "tsserver.npm": "/opt/homebrew/bin/npm",
-    "marketplace.npmsio": true,
-    "pairs.enableBackspace": true,
-    "translator.engines": ["youdao", "google"],
-    "tsserver.trace.server": "messages",
-    "tsserver.enable": false,
-    "volar.takeOverMode.enabled": true,
-    "volar.autoCreateQuotes": true,
-    "git.addedSign.hlGroup": "GitGutterAdd",
-    "git.changedSign.hlGroup": "GitGutterChange",
-    "git.removedSign.hlGroup": "GitGutterDelete",
-    "git.topRemovedSign.hlGroup": "GitGutterDelete",
-    "git.changeRemovedSign.hlGroup": "GitGutterDelete",
-    "git.changedSign.text": "┃",
-    "git.addedSign.text": "┃",
-    "git.removedSign.text": "▁",
-    "git.topRemovedSign.text": "▔",
-    "git.changeRemovedSign.text": "≃",
-    "git.branchCharacter": "",
-    "git.showCommitInFloating": true,
-    "git.addGBlameToVirtualText": false,
-    "git.addGBlameToBufferVar": true,
-    "git.splitWindowCommand": "below 10sp",
-    "git.enableGutters": true,
+    {
+      "name": "JavaSE-1.8",
+      "path": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
+      "default": true
+    }
+  ],
+  "java.trace.server": "verbose",
+  "java.configuration.maven.userSettings": "/Users/zl/.m2/settings.xml",
+  "java.saveActions.organizeImports": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportGeneralTypeIssues": "none",
+    "reportUnusedImport": "warning",
+    "reportUnusedClass": "warning",
+    "reportUnusedFunction": "warning",
+    "reportUnusedVariable": "warning"
+  },
+  "python.pythonPath": "/opt/homebrew/bin/python3",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--ignore=E501,W601"],
+  "links.enable": true,
+  "colors.enable": true,
+  "coc.preferences.jumpCommand": "drop",
+  "diagnostic.checkCurrentLine": true,
+  "tsserver.npm": "/opt/homebrew/bin/npm",
+  "marketplace.npmsio": true,
+  "pairs.enableBackspace": true,
+  "translator.engines": ["youdao", "google"],
+  "tsserver.trace.server": "messages",
+  "tsserver.enable": false,
+  "volar.takeOverMode.enabled": true,
+  "volar.autoCreateQuotes": true,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changedSign.text": "┃",
+  "git.addedSign.text": "┃",
+  "git.removedSign.text": "▁",
+  "git.topRemovedSign.text": "▔",
+  "git.changeRemovedSign.text": "≃",
+  "git.branchCharacter": "",
+  "git.showCommitInFloating": true,
+  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToBufferVar": true,
+  "git.splitWindowCommand": "below 10sp",
+  "git.enableGutters": true,
+  "outline.keepWindow": true
 }

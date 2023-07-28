@@ -161,6 +161,9 @@ map <C-i> <Action>(Forward)
 map g; <Action>(JumpToLastChange)
 map g, <Action>(JumpToNextChange)
 
+command! Fmt action ReformatCode
+command! Fmtd action ShowReformatFileDialog
+
 "
 " Here are mappings about which I'm less sure.
 

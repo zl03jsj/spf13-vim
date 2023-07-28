@@ -27,8 +27,10 @@ M.config = function()
         },
     }
     opts = { silent = false, nowait = true, }
-    vim.keymap.set("n", "<leader>sf", ":lua require('fzf-lua').files({winopts={preview={layout='vertical',vertical='up:80%'}}})<cr>", opts)
-    vim.keymap.set("n", "<leader>sb", ":lua require('fzf-lua').buffers({winopts={preview={layout='vertical',vertical='up:80%'}}})<cr>", opts)
+    vim.keymap.set("n", "<leader>sf",
+        ":lua require('fzf-lua').files({winopts={preview={layout='vertical',vertical='up:80%'}}})<cr>", opts)
+    vim.keymap.set("n", "<leader>sb",
+        ":lua require('fzf-lua').buffers({winopts={preview={layout='vertical',vertical='up:80%'}}})<cr>", opts)
     vim.keymap.set("n", "<leader>sa", ":lua require('fzf-lua').live_grep()<cr>", opts)
     vim.keymap.set("n", "<leader>sw", ":lua require('fzf-lua').grep_cword()<cr>", opts)
     vim.keymap.set("n", "<leader>sg", ":lua require('fzf-lua').grep()<cr>", opts)

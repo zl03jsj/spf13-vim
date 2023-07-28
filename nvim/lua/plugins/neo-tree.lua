@@ -30,10 +30,11 @@ M = {
     },
     keys = {
         -- Neotree source=filesystem reveal=true position=right
-        { "<leader>ne", "<cmd>Neotree toggle position=left<cr>",  desc = "NeoTree" },
-        { "<leader>nt", "<cmd>Neotree reveal position=left source=filesystem<cr>",  desc = "navigate to current open file" },
-        { "<leader>nb", "<cmd>Neotree buffers position=current<cr>", desc = "list current opened file buffers" },
-        { "<leader>ng", "<cmd>Neotree git_status position=bottom<cr>", desc = "show git status" },
+        { "<leader>ne", "<cmd>Neotree toggle position=left<cr>",                   desc = "NeoTree" },
+        { "<leader>nt", "<cmd>Neotree reveal position=left source=filesystem<cr>", desc = "navigate to current open file" },
+        { "<leader>nb", "<cmd>Neotree buffers position=current<cr>",               desc =
+        "list current opened file buffers" },
+        { "<leader>ng", "<cmd>Neotree git_status position=bottom<cr>",             desc = "show git status" },
     },
     config = function()
         -- Unless you are still migrating, remove the deprecated commands from v1.x
@@ -105,8 +106,8 @@ M = {
                 git_status = {
                     symbols = {
                         -- Change type
-                        added     = "",  -- or "✚", but this is redundant info if you use git_status_colors on the name
-                        modified  = "",  -- or "", but this is redundant info if you use git_status_colors on the name
+                        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+                        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
                         deleted   = "✖", -- this can only be used in the git_status source
                         renamed   = "", -- this can only be used in the git_status source
                         -- Status type

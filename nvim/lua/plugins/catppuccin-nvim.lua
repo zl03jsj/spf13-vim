@@ -5,7 +5,7 @@ local M = {
         require("catppuccin").setup({
             flavour = "mocha", -- latte, frappe, macchiato, mocha
             background = {
-                   -- :h background
+                -- :h background
                 light = "latte",
                 dark = "mocha",
             },
@@ -18,7 +18,7 @@ local M = {
                 percentage = 0.15,
             },
             no_italic = false, -- Force no italic
-            no_bold = false, -- Force no bold
+            no_bold = false,   -- Force no bold
             styles = {
                 comments = { "italic" },
                 conditionals = { "italic" },

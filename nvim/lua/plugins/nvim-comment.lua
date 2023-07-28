@@ -51,8 +51,8 @@ local M_comment = {
 local M_nvim_comment = {
     'terrortylor/nvim-comment',
     keys = {
-        { "<c-/>", mode='x', "<cmd>CommentToggle<cr>" },
-        { "<c-/>", mode='n', "<cmd>CommentToggle<cr>" },
+        { "<c-/>", mode = 'x', "<cmd>CommentToggle<cr>" },
+        { "<c-/>", mode = 'n', "<cmd>CommentToggle<cr>" },
     },
     lazy = false,
     config = function()
