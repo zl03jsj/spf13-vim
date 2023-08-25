@@ -43,9 +43,11 @@
       "default": true
     }
   ],
-  "java.trace.server": "verbose",
   "java.configuration.maven.userSettings": "/Users/zl/.m2/settings.xml",
+  "java.jdt.ls.vmargs": "-javaagent:/Users/zl/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable",
+  "java.jdt.ls.lombokSupport.enabled": false,
   "java.saveActions.organizeImports": true,
+  "java.trace.server": "verbose",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportGeneralTypeIssues": "none",
     "reportUnusedImport": "warning",
