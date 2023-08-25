@@ -11,3 +11,6 @@ vim.api.nvim_set_keymap('n', '<M-7>', '7gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<M-8>', '8gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<M-9>', '9gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<M-0>', ':tablast<cr>', { noremap = true })
+
+vim.api.nvim_set_keymap('n', 'cP', ':let @+ = expand("%:p")<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'cp', ':let @+ = expand("%")<cr>', { noremap = true })

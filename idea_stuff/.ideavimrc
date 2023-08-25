@@ -108,6 +108,7 @@ let mapleader = ","
 " Ctrl + F12 in idea.
 " map <Leader>s Action(FileStructurePopup)
 map s <Action>(SelectIn)
+map esc <Action>(CloseActiveTab)<Cr>
 
 " Perhaps a bit useless compared to search anything.
 " nnoremap <leader>s :action GotoRelated<CR>
@@ -129,8 +130,6 @@ map <leader>rp <action>(ReplaceInPath)
 map <leader>njc <Action>(NewClass)
 map <Leader>d <Action>(GotoDeclaration)
 map <Leader>i <Action>(GotoImplementation)
-" map <Leader>m <Action>(GotoImplementation)
-" map <Leader>d <Action>(GotoImplementation)
 " Jump to next/previous error, show error description
 " https://stackoverflow.com/questions/13346245/keyboard-shortcut-to-display-error-in-intellij
 map <Leader>e <Action>(ShowErrorDescription)
@@ -141,7 +140,8 @@ map <Leader>g <Action>(Generate)
 map <Leader>w <Action>(HideAllWindows)
 map <Leader>W <Action>(JumpToLastWindow)
 " Possibly redundant given "Run Anything" DoubleCtrl
-map <Leader>r <Action>(ChooseRunConfiguration)<Cr><Cr>
+" map <Leader>dl <Action>(ChooseRunConfiguration)<Cr><Cr>
+map <Leader>r <Action>(FindUsages)<Cr><Cr>
 map <Leader>R <Action>(Refactorings.QuickListPopupAction)<Cr>
 map <Leader>a <Action>(AnalyzeActionsPopup)
 map <Leader>rn <Action>(RenameElement)

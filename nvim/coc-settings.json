@@ -41,11 +41,6 @@
       "name": "JavaSE-14",
       "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home",
       "default": true
-    },
-    {
-      "name": "JavaSE-1.8",
-      "path": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home/",
-      "default": true
     }
   ],
   "java.trace.server": "verbose",
@@ -58,9 +53,12 @@
     "reportUnusedFunction": "warning",
     "reportUnusedVariable": "warning"
   },
+  "coc-codegeex.apiKey": "615f4aec3cc65c468d5de87102c30928",
+  "coc-codegeex.apiSecret": "P3RzjvOyNhTmCxY8",
+  "python.formatting.provider": "pyink",
   "python.pythonPath": "/opt/homebrew/bin/python3",
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": false,
+  "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": ["--ignore=E501,W601"],
   "links.enable": true,

@@ -151,8 +151,10 @@ M = {
                     --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
                     ["C"] = "close_node",
                     -- ['C'] = 'close_all_subnodes',
-                    ["z"] = "close_all_nodes",
-                    --["Z"] = "expand_all_nodes",
+                    ["z"] = "",
+                    ["Z"] = "",
+                    ["-"] = "close_all_nodes",
+                    ["+"] = "expand_all_nodes",
                     ["a"] = {
                         "add",
                         -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -231,6 +233,10 @@ M = {
                         ["<c-x>"] = "clear_filter",
                         ["[g"] = "prev_git_modified",
                         ["]g"] = "next_git_modified",
+                        ["z"] = "",
+                        ["Z"] = "",
+                        ["-"] = "close_all_nodes",
+                        ["+"] = "expand_all_nodes",
                     },
                     fuzzy_finder_mappings = {
                         -- define keymaps for filter popup window in fuzzy_finder_mode
