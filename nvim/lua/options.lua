@@ -80,13 +80,13 @@ vim.api.nvim_command('filetype plugin indent on')
 
 -- Folding
 vim.opt.foldenable = true
--- vim.opt.foldmethod = "syntax"
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "syntax"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldnestmax = 5
 vim.opt.foldcolumn = '1'
 vim.wo.foldlevel = 5
-vim.opt.foldlevelstart = 0
+vim.opt.foldlevelstart = 99
 
 -- Transparency
 -- set transparency for coc pop menus.
