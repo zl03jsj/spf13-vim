@@ -87,7 +87,7 @@ vim.opt.foldnestmax = 5
 vim.opt.foldcolumn = '1'
 vim.wo.foldlevel = 5
 vim.opt.foldlevelstart = 99
-
+-- let g:incsearch#auto_nohlsearch = 1
 -- Transparency
 -- set transparency for coc pop menus.
 -- vim.opt.pumblend = 15
@@ -122,6 +122,19 @@ function! InitializeDirectories()
 endfunction
 call InitializeDirectories()
 ]])
+
+vim.cmd([[
+augroup vimrc-incsearch-highlight
+autocmd!
+autocmd CmdlineEnter /,\? :set hlsearch
+autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+]])
+-- vim.cmd('augroup vimrc-incsearch-highlight')
+-- vim.cmd('autocmd!')
+-- vim.cmd('autocmd CmdlineEnter /,\? :set hlsearch')
+-- vim.cmd('autocmd CmdlineLeave /,\? :set nohlsearch')
+-- vim.cmd('augroup END')
 
 -- vim.g.python3_host_prog = os.getenv('PYTHON') -- export PYTHON=$(which python3)
 -- vim.cmd("hi! link CocPum Pmenu")
