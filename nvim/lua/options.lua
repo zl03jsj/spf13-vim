@@ -22,11 +22,12 @@ vim.opt.vb = true
 vim.opt.hidden = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4      -- number of visual spaces per TAB
+vim.opt.softtabstop = 4  -- number of spacesin tab when editing
+vim.opt.shiftwidth = 4   -- insert 4 spaces on a tab
+vim.opt.textwidth = 100
+vim.opt.expandtab = true -- tabs are spaces, mainly because of python
 vim.opt.smarttab = true
-vim.opt.expandtab = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
@@ -54,12 +55,6 @@ vim.opt.belloff = "all"
 vim.opt.clipboard = 'unnamed,unnamedplus' -- use system clipboard
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.mouse = 'a'                       -- allow the mouse to be used in Nvim
-
--- Tab
-vim.opt.tabstop = 4      -- number of visual spaces per TAB
-vim.opt.softtabstop = 4  -- number of spacesin tab when editing
-vim.opt.shiftwidth = 4   -- insert 4 spaces on a tab
-vim.opt.expandtab = true -- tabs are spaces, mainly because of python
 
 -- UI config
 vim.opt.number = true         -- show absolute number
@@ -128,6 +123,7 @@ augroup vimrc-incsearch-highlight
 autocmd!
 autocmd CmdlineEnter /,\? :set hlsearch
 autocmd CmdlineLeave /,\? :set nohlsearch
+" autocmd InsertEnter,VimEnter,CursorHold * :let @/=""
 augroup END
 ]])
 -- vim.cmd('augroup vimrc-incsearch-highlight')

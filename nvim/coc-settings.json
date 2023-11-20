@@ -38,11 +38,20 @@
   "clangd.path": "/opt/homebrew/Cellar/llvm/16.0.6/bin/clangd",
   "java.configuration.runtimes": [
     {
-      "name": "JavaSE-14",
-      "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home",
+      "name": "JavaSE-1.8",
+      "path": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home",
       "default": true
+    },
+    {
+      "name": "JavaSE-14",
+      "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home"
     }
   ],
+  "java.format.enabled": true,
+  "java.format.onType.enabled": true,
+  "java.format.comments.enabled": true,
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "-java.format.settings.url": "file:/Users/zl/workspace/GoogleStyle.xml",
   "java.configuration.maven.userSettings": "/Users/zl/.m2/settings.xml",
   "java.jdt.ls.vmargs": "-javaagent:/Users/zl/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable",
   "java.jdt.ls.lombokSupport.enabled": false,
@@ -57,7 +66,7 @@
   },
   "coc-codegeex.apiKey": "615f4aec3cc65c468d5de87102c30928",
   "coc-codegeex.apiSecret": "P3RzjvOyNhTmCxY8",
-  "python.formatting.provider": "pyink",
+  "python.formatting.provider": "darker",
   "python.pythonPath": "/opt/homebrew/bin/python3",
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,

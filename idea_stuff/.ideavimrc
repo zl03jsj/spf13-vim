@@ -107,51 +107,72 @@ let mapleader = ","
 " map <Leader>r :action RenameElement<CR>
 " Ctrl + F12 in idea.
 " map <Leader>s Action(FileStructurePopup)
-map s <Action>(SelectIn)
-map esc <Action>(CloseActiveTab)<Cr>
+" map s <Action>(SelectIn)
+" map esc <Action>(CloseActiveTab)<Cr>
 
 " Perhaps a bit useless compared to search anything.
 " nnoremap <leader>s :action GotoRelated<CR>
-map <leader><leader>s <Action>(GotoSymbol)<Cr>
-map <leader><leader>f <Action>(GotoFile)<Cr>
-map <Leader><Leader>o <Action>(FileStructurePopup)
 " Alt + F7 in idea.
 " Find usages in file is Ctrl + F7.
 " Alt + E, then F, then U (through the menu bar) also seems to work fine.
-map <Leader>fu <Action>(FindUsages)
+map <leader>fu <Action>(FindUsages)
 map <leader>fp <action>(FindInPath)
+map <leader>sp <Action>(FindInPath)
 map <leader>rp <action>(ReplaceInPath)
+map <leader>sf <Action>(GotoFile)
+map <leader>sc <Action>(GotoClass)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>st <Action>(TextSearchAction)
 
 " map <leader>nj <Action>(NewClass)<Cr>
 
 " Perhaps just use the Idea shortcut Ctrl-Alt-B
 " Alt + N, then m (through the menu bar) also seems to work, but it is
 " non-unique.
-map <leader>njc <Action>(NewClass)
-map <Leader>d <Action>(GotoDeclaration)
-map <Leader>i <Action>(GotoImplementation)
 " Jump to next/previous error, show error description
 " https://stackoverflow.com/questions/13346245/keyboard-shortcut-to-display-error-in-intellij
-map <Leader>e <Action>(ShowErrorDescription)
-map <Leader>l <Action>(HighlightUsagesInFile)
 " Alt + Insert in idea.
 map <Leader>g <Action>(Generate)
-" F12 
 map <Leader>w <Action>(HideAllWindows)
 map <Leader>W <Action>(JumpToLastWindow)
 " Possibly redundant given "Run Anything" DoubleCtrl
 " map <Leader>dl <Action>(ChooseRunConfiguration)<Cr><Cr>
+map <Leader>e <Action>(ShowErrorDescription)
+map <Leader>l <Action>(HighlightUsagesInFile)
+map <leader>nc <Action>(NewClass)
+map <Leader>d <Action>(GotoDeclaration)
+map <Leader>i <Action>(GotoImplementation)
 map <Leader>r <Action>(FindUsages)<Cr><Cr>
 map <Leader>R <Action>(Refactorings.QuickListPopupAction)<Cr>
 map <Leader>a <Action>(AnalyzeActionsPopup)
 map <Leader>rn <Action>(RenameElement)
 map <leader>nt <Action>(SelectInProjectView)
+map <leader>to <Action>(FileStructurePopup)
+map <ctl-]> <Action>(NextSplitter)
+
+map <leader><leader>l <Action>(AceLineAction)
+map ]g <Action>(GotoNextError)
+map [g <Action>(GotoPreviousError)
+map <leader>gd <Action>(Compare.SameVersion)
+map <leader>gc <Action>(Compare.SameVersion)
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>gc <Action>(Vcs.Show.Log)
+map <leader>sb <Action>(RecentFiles)
+
+map zf <Action>(CollapseSelection)
+
+
+"" ace-jump
+map s <Action>(AceWordStartAction)
+map <leader><leader>l <Action>(AceLineAction)
+" map <leader><leader>b <Action>(AceWordEndAction)
+
+
 " I like using space for jumping to the next error or issue
-" map <Space> <Action>(GotoNextError)
 " Kind of makes more sense to use Backspace to go back... but could it be assigned a better action?
 " map <Leader><Space> <Action>(GotoPreviousError)
 "map <BS> <Action>(GotoPreviousError)
-map <BS> <Action>(GotoRelated)
+"jmap <BS> <Action>(Got/<esoRelated)
 
 " The default C-o and C-i behaviours have certain inconsistencies with
 " Vim which I can't quite pinpoint.
@@ -161,12 +182,21 @@ map <C-i> <Action>(Forward)
 map g; <Action>(JumpToLastChange)
 map g, <Action>(JumpToNextChange)
 
+" map zm <Action>(CollapseRegion)
+" map za <Action>(ExpandRegion)
+" map zf <Action>(ExpandCollapseToggleAction)
+" map zM <Action>(CollapseAllRegions)
+" map zA <Action>(ExpandRegionRecursively)
+" map zR <Action>(ExpandAllRegions)
+" map zr <Action>(ExpandAllToLevel1)
+
+map <leader>tt <Action>(ActivateTerminalToolWindow)
+
 command! Fmt action ReformatCode
 command! Fmtd action ShowReformatFileDialog
 
 "
 " Here are mappings about which I'm less sure.
-
 " This is for going to related symbols. I can't find any effect in the community edition.
 " map <Leader>g :action GotoRelated<CR> 
 

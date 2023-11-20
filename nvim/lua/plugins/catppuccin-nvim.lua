@@ -48,4 +48,4 @@ local M = {
     end
 }
 
-return {}
+return M;
