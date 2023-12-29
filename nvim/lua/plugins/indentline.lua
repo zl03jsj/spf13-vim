@@ -4,7 +4,7 @@ local M = {
 
 M.config = function()
     vim.opt.termguicolors = true
-    vim.opt.list = true
+    -- vim.opt.list = true
     vim.opt.listchars:append "eol:↴"
     local highlight = {
         "RainbowRed",
@@ -27,9 +27,13 @@ M.config = function()
         vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
         vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
     end)
+
+    vim.api.nvim_command("highlight IblScope guifg=#ff0000")
     require("ibl").setup {
         indent = { highlight = highlight, char = "┊" },
-        scope = { highlight = 'RainbowBlue', char = "▏" },
+        -- scope = { highlight = 'RainbowBlue', char = "█", show_start = false },
+        scope = { highlight = 'RainbowBlue', char = "┊", show_start = false },
     }
 end
-return M
+
+return M;

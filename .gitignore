@@ -4,3 +4,4 @@
 .vim/
 vimlog
 .idea/
+lazy-lock.json

@@ -1,4 +1,4 @@
--- https://github.com/yuki-yano/fzf-preview.vim#installation
+
 -- https://github.com/yuki-yano/fzf-preview.vim#command
 --
 -- install the npm package neovim to get the remote plugin working.
@@ -8,7 +8,7 @@
 -- :FzfPreviewDirectoryFilesRpc {path or none}
 -- :FzfPreviewDirectoryFiles {path or none}
 -- :CocCommand fzf-preview.DirectoryFiles
---
+-- :CocInstall coc-fzf-preview
 
 local M = {
     'yuki-yano/fzf-preview.vim',
@@ -31,4 +31,4 @@ local M = {
     end
 }
 
-return {}
+return M

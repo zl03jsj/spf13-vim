@@ -16,20 +16,22 @@
   "list.floatPreview": true,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
   "snippets.ultisnips.directories": ["~/.config/nvim/snippets/ultisnips"],
+  "workspace.workspaceFolderFallbackCwd": true,
   "languageserver": {
-    "golang": {
+    "go": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".git/"],
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"],
       "initializationOptions": {
         "analyses": {
           "unreachable": true,
           "unusedparams": true
         },
-        "staticcheck": true
+        "staticcheck": true,
+        "usePlaceholders": true
       }
     },
-    "_clangd": {
+    "clangd": {
       "command": "clangd",
       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
@@ -50,8 +52,7 @@
   "java.format.enabled": true,
   "java.format.onType.enabled": true,
   "java.format.comments.enabled": true,
-  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-  "-java.format.settings.url": "file:/Users/zl/workspace/GoogleStyle.xml",
+  "java.format.settings.url": "file:/Users/zl/workspace/eclipse-java-google-style.xml",
   "java.configuration.maven.userSettings": "/Users/zl/.m2/settings.xml",
   "java.jdt.ls.vmargs": "-javaagent:/Users/zl/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable",
   "java.jdt.ls.lombokSupport.enabled": false,
