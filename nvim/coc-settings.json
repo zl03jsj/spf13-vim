@@ -27,6 +27,7 @@
           "unreachable": true,
           "unusedparams": true
         },
+        "buildFlags": ["-tags=tag_name"],
         "staticcheck": true,
         "usePlaceholders": true
       }
