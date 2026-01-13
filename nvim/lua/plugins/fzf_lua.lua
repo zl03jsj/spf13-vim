@@ -42,7 +42,7 @@ M.config = function()
     vim.keymap.set("n", "<leader>fl", ":FzfLua builtin<cr>", opts)
 end
 
-return M
+return {}
 
 -- local M = {
 --     'junegunn/fzf.vim',

@@ -32,6 +32,7 @@ require("lazy").setup({
     { import = "plugins" },
     {
         'norcalli/nvim-colorizer.lua',
+        { 'kepano/flexoki-neovim', name = 'flexoki' },
         config = function()
             require 'colorizer'.setup({
                 'css',

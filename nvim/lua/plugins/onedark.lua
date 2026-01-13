@@ -1,4 +1,4 @@
-return {
+M = {
     "navarasu/onedark.nvim",
     config = function()
         local onedark = require('onedark')
@@ -52,3 +52,5 @@ return {
         vim.api.nvim_command("hi! CursorColumn guibg=#555555")
     end
 }
+
+return M;

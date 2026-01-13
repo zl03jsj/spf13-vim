@@ -1,4 +1,4 @@
-return {
+M = {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
@@ -36,3 +36,5 @@ return {
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
 }
+
+return M;

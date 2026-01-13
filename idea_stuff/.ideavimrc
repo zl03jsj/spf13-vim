@@ -192,6 +192,7 @@ map g, <Action>(JumpToNextChange)
 
 map <leader>tt <Action>(ActivateTerminalToolWindow)
 
+command! Fmtg action GoImportsFileAction
 command! Fmt action ReformatCode
 command! Fmtd action ShowReformatFileDialog
 

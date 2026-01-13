@@ -5,7 +5,6 @@ local M = {
     dependencies = {
         {
             'nvim-telescope/telescope.nvim',
-            tag = '0.1.1',
             lazy = false,
             dependencies = {
                 { 'nvim-lua/plenary.nvim' },
@@ -21,7 +20,10 @@ local M = {
     lazy = false,
     config = function()
         local telescope = require("telescope")
-        telescope.setup({ extensions = { coc = {}, }, })
+        telescope.setup({ extensions = { coc = {
+            prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+            push_cursor_on_edit = true, -- save the cursor position to jump back in the future
+        }, }, })
         telescope.load_extension('coc')
         local builtin = require('telescope.builtin')
 
@@ -45,4 +47,4 @@ local M = {
     end
 }
 
-return M
+return M;

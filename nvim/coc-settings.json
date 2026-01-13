@@ -36,20 +36,22 @@
       "command": "clangd",
       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
     }
   },
   "clangd.path": "/opt/homebrew/Cellar/llvm/16.0.6/bin/clangd",
   "java.configuration.runtimes": [
     {
-      "name": "JavaSE-1.8",
-      "path": "/usr/local/opt/jdk1.8.0_351.jdk/Contents/Home",
+      "name": "JavaSE-17",
+      "path": "/usr/local/opt/jdk-17.0.2.jdk/Contents/Home",
       "default": true
-    },
-    {
-      "name": "JavaSE-14",
-      "path": "/usr/local/opt/jdk-14.0.2.jdk/Contents/Home"
     }
   ],
+  "workspace.ignoredFolders": ["$HOME", "$HOME/.cargo/**", "$HOME/.rustup/**"],
   "java.format.enabled": true,
   "java.format.onType.enabled": true,
   "java.format.comments.enabled": true,
@@ -66,8 +68,6 @@
     "reportUnusedFunction": "warning",
     "reportUnusedVariable": "warning"
   },
-  "coc-codegeex.apiKey": "615f4aec3cc65c468d5de87102c30928",
-  "coc-codegeex.apiSecret": "P3RzjvOyNhTmCxY8",
   "python.formatting.provider": "darker",
   "python.pythonPath": "/opt/homebrew/bin/python3",
   "python.linting.enabled": true,

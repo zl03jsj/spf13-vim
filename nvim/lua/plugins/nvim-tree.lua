@@ -151,4 +151,4 @@ M.config = function()
 end
 
 
-return {}
+return {};

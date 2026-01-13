@@ -5,10 +5,7 @@ local M = {
     branch = 'master',
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })
-    end,
-    dependencies = {
-        { "p00f/nvim-ts-rainbow", branch = 'master' },
-    },
+    end
 }
 
 function M.config()
@@ -20,11 +17,6 @@ function M.config()
             enable = true,
             additional_vim_regex_highlighting = true
         },
-        rainbow = {
-            enable = true,
-            extended_mode = true,
-            max_file_lines = nil,
-        },
     })
     G.map({
         { 'n', 'H', ':TSToggle highlight<CR>', { silent = true, noremap = true } },
@@ -34,4 +26,4 @@ function M.config()
     vim.wo.foldlevel = 99
 end
 
-return M
+return M;
