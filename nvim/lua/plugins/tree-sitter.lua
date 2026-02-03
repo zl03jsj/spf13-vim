@@ -2,15 +2,14 @@
 local G = require('G')
 local M = {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'master',
+    branch = 'main',
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })
     end
 }
 
 function M.config()
-    local config = require('nvim-treesitter.configs')
-    config.setup({
+    require('nvim-treesitter').setup({
         ensure_installed = { 'typescript', 'bash', 'rust', 'cpp', 'javascript',
             'vue', 'go', 'c', 'vim', 'lua', 'markdown', 'json' },
         highlight = {
