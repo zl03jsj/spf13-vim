@@ -2,7 +2,7 @@
 local G = require('G')
 local M = {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'main',
+    branch = 'master',
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })
     end
