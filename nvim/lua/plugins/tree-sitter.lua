@@ -21,7 +21,7 @@ function M.config()
         { 'n', 'H', ':TSToggle highlight<CR>', { silent = true, noremap = true } },
     })
     vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.wo.foldlevel = 99
 end
 
