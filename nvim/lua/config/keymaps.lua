@@ -1,6 +1,15 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+--
+if vim.g.vscode then
+  local keymap = vim.keymap
+  keymap.set("n", "<leader>d", '<Cmd>call VSCodeNotify("editor.action.revealDefinition")<CR>')
+  keymap.set("n", "<leader>ds", '<Cmd>call VSCodeNotify("editor.action.revealDefinitionAside")<CR>')
+  keymap.set("n", "<leader>i", '<Cmd>call VSCodeNotify("editor.action.goToImplementation")<CR>')
+  keymap.set("n", "<leader>r", '<Cmd>call VSCodeNotify("editor.action.goToReferences")<CR>')
+  keymap.set("n", "<leader>rn", '<Cmd>call VSCodeNotify("editor.action.rename")<CR>')
+end
 
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-1>", "1gt", { noremap = true })

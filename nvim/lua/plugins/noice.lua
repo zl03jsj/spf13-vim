@@ -11,6 +11,12 @@ return {
     opts.lsp = opts.lsp or {}
     opts.lsp.progress = { enabled = false }
 
+    if vim.g.vscode then
+      opts.cmdline = { enabled = false }
+      opts.messages = { enabled = false }
+      opts.popupmenu = { enabled = false }
+    end
+
     return opts
   end,
 }
