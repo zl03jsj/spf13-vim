@@ -8,7 +8,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_status${custom.git_staged_total}${custom.git_unstaged_deleted}\
-[](fg:green bg:#111320)\
+[](fg:green)\
 $character\
 """
 
