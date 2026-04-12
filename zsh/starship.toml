@@ -4,11 +4,11 @@ format = """\
 [](fg:#7DF9AA bg:#1C3A5E)\
 [](fg:#1C3A5E bg:#3B76F0)\
 $directory\
-[](fg:#3B76F0 bg:green)\
+[](fg:#3B76F0 bg:#ABE047)\
 $git_branch\
 $git_commit\
 $git_status${custom.git_staged_total}${custom.git_unstaged_deleted}\
-[](fg:green)\
+[](fg:#ABE047)\
 $character\
 """
 
@@ -27,7 +27,7 @@ style = "bg:#3B76F0"
 format = '[ $symbol$branch(:$remote_branch)]($style)'
 # symbol = "  "
 symbol = " "
-style = "bold bg:green fg:#2E2E2E"
+style = "bold bg:#ABE047 fg:#2E2E2E"
 
 [git_commit]
 format = '[ $tag ]($style)'
@@ -35,45 +35,45 @@ disabled = false
 only_detached = false
 tag_disabled = false
 tag_symbol = ''
-style = "bold fg:black bg:green"
+style = "bold fg:black bg:#ABE047"
 
 # [git_status]
 # format = '([$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind]($style))'
-# style = "bold fg:black bg:green"
-# staged = '[+$count](bold fg:#black bg:green)'
-# modified = '[!$count ](bold fg:#EF8633 bg:green)'
-# stashed = '[*${count} ](bold fg:black bg:green)'
-# deleted = '[✘${count} ](bold fg:#EF8633 bg:green)'
-# untracked = '[?${count} ](bold fg:#EF8633 bg:green)'
-# # ahead = '[⇡${count}](bold fg:#EF8633 bg:green)'
-# # behind = '[⇣${count}](bold fg:#EF8633 bg:green)'
-# diverged = '[⇡${ahead_count}⇣${behind_count}](bold fg:black bg:green)'
+# style = "bold fg:black bg:#ABE047"
+# staged = '[+$count](bold fg:#black bg:#ABE047)'
+# modified = '[!$count ](bold fg:#EF8633 bg:#ABE047)'
+# stashed = '[*${count} ](bold fg:black bg:#ABE047)'
+# deleted = '[✘${count} ](bold fg:#EF8633 bg:#ABE047)'
+# untracked = '[?${count} ](bold fg:#EF8633 bg:#ABE047)'
+# # ahead = '[⇡${count}](bold fg:#EF8633 bg:#ABE047)'
+# # behind = '[⇣${count}](bold fg:#EF8633 bg:#ABE047)'
+# diverged = '[⇡${ahead_count}⇣${behind_count}](bold fg:black bg:#ABE047)'
 # disabled = false
 
 [git_status]
 format = '([$conflicted$stashed$renamed$modified$typechanged$untracked$ahead_behind]($style))'
-style = "bold fg:black bg:green"
+style = "bold fg:black bg:#ABE047"
 staged = ''   # 用 custom 统一显示 staged 总数
 deleted = ''  # 关闭内置 deleted（它是 staged delete）
-modified = '[!$count ](bold fg:#EF8633 bg:green)'
-stashed = '[*${count} ](bold fg:black bg:green)'
-renamed = '[»${count} ](bold fg:#EF8633 bg:green)'
-untracked = '[?${count} ](bold fg:#EF8633 bg:green)'
-diverged = '[⇡${ahead_count}⇣${behind_count} ](bold fg:black bg:green)'
-ahead = '[⇡${count} ](bold fg:#EF8633 bg:green)'
-behind = '[⇣${count} ](bold fg:#EF8633 bg:green)'
+modified = '[!$count ](bold fg:#EF8633 bg:#ABE047)'
+stashed = '[*${count} ](bold fg:black bg:#ABE047)'
+renamed = '[»${count} ](bold fg:#EF8633 bg:#ABE047)'
+untracked = '[?${count} ](bold fg:#EF8633 bg:#ABE047)'
+diverged = '[⇡${ahead_count}⇣${behind_count} ](bold fg:black bg:#ABE047)'
+ahead = '[⇡${count} ](bold fg:#EF8633 bg:#ABE047)'
+behind = '[⇣${count} ](bold fg:#EF8633 bg:#ABE047)'
  
 [custom.git_staged_total]
 require_repo = true
 when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && ! git diff --cached --quiet'
 command = 'c=$(git diff --cached --name-only | wc -l | tr -d " "); echo "+$c"'
-format = '[$output ](bold fg:#EF8633 bg:green)'
+format = '[$output ](bold fg:#EF8633 bg:#ABE047)'
 
 [custom.git_unstaged_deleted]
 require_repo = true
 when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && [ -n "$(git diff --name-only --diff-filter=D)" ]'
 command = 'c=$(git diff --name-only --diff-filter=D | wc -l | tr -d " "); echo "✘$c"'
-format = '[$output ](bold fg:#DC4B8B bg:green)'
+format = '[$output ](bold fg:#DC4B8B bg:#ABE047)'
 
 [git_metrics]
 format = '[\[+$added]($added_style)[/]($added_style)[-$deleted]($deleted_style)[\]]($added_style)'
@@ -90,7 +90,7 @@ format = "[  $duration ]($style)"
 style = "fg:bright-white bg:18"
 
 [character]
-success_symbol = '[❯](bold green)'
+success_symbol = '[❯](bold #ABE047)'
 error_symbol = '[✗](bold #E84D44)'
 
 [time]
