@@ -1,0 +1,30 @@
+[user]
+	name = leo
+    email = zl03jsj004@gmail.com
+[core]
+	editor = nvim
+	excludesfile = /Users/zl/.gitignore_global
+[alias]
+	st = status
+    ; ls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
+    last="rev-parse head"
+	glg ="!git --no-pager log --graph --pretty=format:'%C(yellow)%h %Creset%s%C(auto)%d%C(brightblue)[%an]%C(cyan)<%cd>' --date=format:'%m-%d %H:%M:%S' -n 20"
+    hist="log --pretty=format:'%C(auto)%h %ad | %C(auto)%s%d  %Cblue(%an)' --graph --date=short"
+    gov="!git --no-pager log -1 --format='format:v0.0.0-%cd-%H' --date=format:%Y%m%d%H%M%S | cut -c 1-34"
+[http]
+	postBuffer = 104857600
+	sslVerify = false
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
+	path = -ro
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/zl/.stCommitMsg
+[log]
+	date = format:%Y-%m-%d %H:%M:%S
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[merge]
+	ff = false

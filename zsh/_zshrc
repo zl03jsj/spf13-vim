@@ -127,7 +127,8 @@ export PATH=/usr/local/opt/llvm/bin:$HOME/.cargo/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
-alias glg='git --no-pager log --pretty=format:"%C(yellow)%h %Creset%s%C(auto)%d%C(brightblue)[%an]%C(cyan)<%cd>" --date=format:"%m-%d %H:%M:%S" -n 20'
+alias glg='git glg'
+alias ghist='git hist'
 alias gcc='gcc-13'
 alias cc='gcc-13'
 alias g++='g++-13'
@@ -135,9 +136,9 @@ alias c++='c++-13'
 
 http_proxy_url=http://127.0.0.1:7890
 socks5_proxy_url=socks5://127.0.0.1:7890
+
 alias proxy='git config --global http.proxy $socks5_proxy_url && git config --global https.proxy $socks5_proxy_url && export https_proxy=$http_proxy_url && export http_proxy=$http_proxy_url && export all_proxy=$socks5_proxy_url && export no_proxy="localhost,127.0.0.1"'
 alias unproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && unset http_proxy && unset https_proxy && unset ftp_proxy && unset rsync_proxy && unset all_proxy'
-alias passd_proxy='networksetup -getproxybypassdomains "WI-FI" | xargs sudo networksetup -setproxybypassdomains WI-FI "*kdmex.com" "*cm-ccc.com" "rinetd-proxy-ibit.kdmex.com"'
 
 # proxy of fotiaoqiang
 #http_proxy_url=http://127.0.0.1:19180
