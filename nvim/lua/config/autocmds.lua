@@ -19,6 +19,15 @@ if vim.g.vscode then
   })
 end
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go", "rust" },
+  callback = function()
+    local lcs = vim.opt_local.listchars:get()
+    lcs.tab = "┊ "
+    vim.opt_local.listchars = lcs
+  end,
+})
+
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "go",
 --   callback = function()

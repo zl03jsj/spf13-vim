@@ -5,3 +5,4 @@
 vimlog
 .idea/
 lazy-lock.json
+.nvimlog

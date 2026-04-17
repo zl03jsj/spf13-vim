@@ -129,10 +129,13 @@ export PATH=/usr/local/opt/llvm/bin:$HOME/.cargo/bin:$PATH
 alias vim="nvim"
 alias glg='git glg'
 alias ghist='git hist'
-alias gcc='gcc-13'
-alias cc='gcc-13'
-alias g++='g++-13'
-alias c++='c++-13'
+alias gls='git gls'
+
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -a'
+alias ll='lsd -la'
+alias lt='lsd --tree'
 
 http_proxy_url=http://127.0.0.1:7890
 socks5_proxy_url=socks5://127.0.0.1:7890
@@ -211,3 +214,9 @@ export EDITOR='nvim'
 
 # [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
 eval "$(starship init zsh)"
+
+function set_feeder_token() {
+    export INFOWAY_API_KEY=ad833e7ecdc148ffb550db0312ede35a-infoway
+    export ITICK_API_TOKEN=043641d519404336ae91e2fd145744b258385512c455470b86940fd2ca8b19a1
+    export MASSIVE_API_TOKEN=qqVpqjzcZQcet1_8PpJXLyGtw9KCJF0I
+}
