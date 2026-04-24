@@ -1,0 +1,86 @@
+
+# 切换分栏焦点 (同 iTerm2: Cmd + 方向)
+keybind = super+arrow_up=goto_split:up
+keybind = super+arrow_down=goto_split:down
+keybind = super+arrow_left=goto_split:left
+keybind = super+arrow_right=goto_split:right
+
+# 调整分栏大小 (同 iTerm2: Cmd+Opt + 方向)
+keybind = super+alt+arrow_up=resize_split:up,10
+keybind = super+alt+arrow_down=resize_split:down,10
+keybind = super+alt+arrow_left=resize_split:left,10
+keybind = super+alt+arrow_right=resize_split:right,10
+# Copy selected text to both selection and system clipboard
+copy-on-select = clipboard
+# ===== 字体 =====
+# font-family = "JetBrains Mono"
+# font-size = 16
+font-family = "Hack Nerd font Mono"
+font-size = 10.5
+theme = "iTerm2 Default"
+
+# 如果你没装 Nerd Font，可以先用系统字体：
+# font-family = Menlo
+
+# ===== 光标 =====
+cursor-style = block
+cursor-style-blink = true
+
+# ===== 颜色（干净耐看，不刺眼）=====
+background = #0f1117
+foreground = #c9d1d9
+
+# ANSI colors
+palette = 0=#0f1117
+palette = 1=#ff7b72
+palette = 2=#3fb950
+palette = 3=#d29922
+palette = 4=#58a6ff
+palette = 5=#bc8cff
+palette = 6=#39c5cf
+palette = 7=#b1bac4
+palette = 8=#6e7681
+palette = 9=#ffa198
+palette = 10=#56d364
+palette = 11=#e3b341
+palette = 12=#79c0ff
+palette = 13=#d2a8ff
+palette = 14=#56d4dd
+palette = 15=#f0f6fc
+
+# ===== 窗口 =====
+window-padding-x = 10
+window-padding-y = 1
+
+# 透明度（可选，不喜欢就删）
+background-opacity = 0.95
+
+# ===== 滚动 =====
+scrollback-limit = 100000
+
+# ===== 复制粘贴 =====
+
+# ===== shell =====
+# 默认用 zsh（mac 基本都是）
+# shell = /bin/zsh
+
+# ===== 性能 =====
+# 开 GPU（默认其实就开）
+# enable-ligatures = true
+
+# ===== 键绑定（简单实用）=====
+# 新开窗口
+# keybind = super+n=new_window
+#
+# # 分屏（横/竖）
+# keybind = super+d=split_right
+# keybind = super+shift+d=split_down
+#
+# # 关闭 pane
+# keybind = super+w=close_surface
+#
+# # 切 pane
+# keybind = super+h=focus_left
+# keybind = super+l=focus_right
+# keybind = super+k=focus_up
+# keybind = super+j=focus_down
