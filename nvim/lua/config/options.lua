@@ -7,7 +7,6 @@ vim.g.mapleader = ","
 vim.opt.termguicolors = true
 vim.api.nvim_command("filetype plugin indent on")
 vim.api.nvim_command("set cursorline")
--- vim.api.nvim_command('set cursorcolumn')
 vim.opt.showcmd = true
 vim.opt.encoding = "utf-8"
 vim.opt.wildmenu = true
@@ -41,7 +40,7 @@ vim.opt.viminfo = "!,'10000,<50,s10,h"
 vim.opt.viewdir = os.getenv("HOME") .. "/.vim/view"
 -- vim.opt.foldtext = 'v:lua.MagicFoldText()'
 vim.opt.cmdheight = 1
-vim.opt.updatetime = 300
+vim.opt.updatetime = 50
 vim.opt.shortmess = "filnxtToOcIF"
 vim.opt.scrolloff = 5
 vim.opt.showmode = false
@@ -65,6 +64,7 @@ vim.opt.mouse = "a" -- allow the mouse to be used in Nvim
 vim.opt.number = true -- show absolute number
 vim.opt.relativenumber = true -- add numbers to each line on the left side
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
+vim.opt.cursorcolumn = false
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 -- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI

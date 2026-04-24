@@ -28,6 +28,25 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+local symbol_ref_hl_group = vim.api.nvim_create_augroup("symbol_reference_hl", { clear = true })
+local function set_symbol_reference_hl()
+  vim.api.nvim_set_hl(0, "CocHighlightText", { bg = "#3d5f25" })
+  vim.api.nvim_set_hl(0, "CocHighlightRead", { bg = "#3d5f25" })
+  vim.api.nvim_set_hl(0, "CocHighlightWrite", { bg = "#3d5f25" })
+
+  -- Keep native LSP reference groups consistent in case a buffer uses built-in LSP.
+  vim.api.nvim_set_hl(0, "LspReferenceText", { bg = "#3d5f25" })
+  vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#3d5f25" })
+  vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg = "#3d5f25" })
+end
+
+set_symbol_reference_hl()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = symbol_ref_hl_group,
+  callback = set_symbol_reference_hl,
+})
+
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "go",
 --   callback = function()
