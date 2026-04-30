@@ -16,7 +16,7 @@ copy-on-select = clipboard
 # font-family = "JetBrains Mono"
 # font-size = 16
 font-family = "Hack Nerd font Mono"
-font-size = 10.5
+font-size = 10
 theme = "iTerm2 Default"
 
 # 如果你没装 Nerd Font，可以先用系统字体：
