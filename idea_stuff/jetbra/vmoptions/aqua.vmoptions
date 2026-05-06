@@ -1,17 +1,3 @@
-
-#### references:
-https://3.jetbra.in/
-https://www.exception.site/essay/idea-reset-eval
-
-#### download idea 2022.2.3
-https://download-cdn.jetbrains.com/idea/ideaIU-2022.2.3.dmg
-
-#### modify idea.vmoption
-macos path : 
-`/Users/zl/Library/Application Support/JetBrains/IntelliJIdea2022.2/idea.vmoptions`
-
-content:
-```
 -Xms128m
 -Xmx1024m
 -XX:ReservedCodeCacheSize=512m
@@ -33,8 +19,4 @@ content:
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
 
--javaagent:/Users/zl/Downloads/jetbra/ja-netfilter.jar=jetbrains
-```
-
-#### idea hot key 绑定方案
-https://danidiaz.medium.com/configuring-ideavimrc-de16a4da0715
+-javaagent:/Users/penglei/file/JetBrains-2026-po-jie-bao/jetbra/ja-netfilter.jar=jetbrains
