@@ -1,0 +1,99 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "collaboration_panel": {},
+  "git_panel": {},
+  "outline_panel": {
+    "dock": "right",
+  },
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1",
+    },
+    "default_model": {
+      "effort": "medium",
+      "provider": "zed.dev",
+      "model": "gpt-5.5",
+      "enable_thinking": true,
+    },
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "project_panel": {
+    "dock": "left",
+    "entry_spacing": "standard",
+    "bold_folder_labels": true,
+    "indent_size": 15.0,
+  },
+  "vim": {
+    "toggle_relative_line_numbers": false,
+  },
+  "relative_line_numbers": "enabled",
+  "vertical_scroll_margin": 3.0,
+  "buffer_line_height": {
+    "custom": 1.100000023841858,
+  },
+  "proxy": "socks5h://localhost:7890",
+  "terminal": {
+    "copy_on_select": true,
+    "font_family": "Hack Nerd Font Mono",
+    "font_size": 9.0,
+  },
+  "ui_font_family": "Hack Nerd Font Mono",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "favorite_config_option_values": {
+        "model": ["gpt-5.3-codex"],
+      },
+      "type": "registry",
+    },
+  },
+  "base_keymap": "JetBrains",
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 11.0,
+  "buffer_font_size": 10.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Ayu Dark",
+  },
+  "selection_highlight": true,
+  "current_line_highlight": "all",
+  "theme_overrides": {
+    "Ayu Dark": {
+      "editor.document_highlight.read_background": "#3A3F55",
+      "editor.document_highlight.write_background": "#5A3B3B",
+    },
+  },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "buildFlags": ["-tags=spot"],
+      },
+      "settings": {
+        "gopls": {
+          "buildFlags": ["-tags=spot"],
+        },
+      },
+    },
+  },
+}

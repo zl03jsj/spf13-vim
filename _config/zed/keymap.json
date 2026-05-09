@@ -1,0 +1,49 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": null,
+      ", d": "editor::GoToDefinition",
+      ", d s": "editor::GoToDeclaration",
+      ", y": "editor::GoToTypeDefinition",
+      ", i": "editor::GoToImplementation",
+      ", r": "editor::FindAllReferences",
+      ", n t": "pane::RevealInProjectPanel",
+      ", t o": "outline::Toggle",
+      ", s f": "file_finder::Toggle",
+      ", s b": "tab_switcher::Toggle",
+      ", f": "editor::Format",
+      ", c c": "editor::ToggleComments",
+      ", t t": "terminal_panel::ToggleFocus",
+      "ctrl-/": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "escape": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-1": ["pane::ActivateItem", 0],
+      "alt-2": ["pane::ActivateItem", 1],
+      "alt-3": ["pane::ActivateItem", 2],
+      "alt-4": ["pane::ActivateItem", 3],
+      "alt-5": ["pane::ActivateItem", 4],
+      "alt-6": ["pane::ActivateItem", 5],
+      "alt-7": ["pane::ActivateItem", 6],
+      "alt-8": ["pane::ActivateItem", 7],
+      "alt-9": ["pane::ActivateItem", 8],
+      "alt-0": "pane::ActivateLastItem",
+    },
+  },
+]
